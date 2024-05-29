@@ -3,3 +3,5 @@ CoreUnitTests/obj
 Order.txt
 PromoCode.txt
 .idea
+Web API/bin
+Web API/obj

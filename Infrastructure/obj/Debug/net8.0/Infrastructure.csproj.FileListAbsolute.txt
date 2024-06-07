@@ -15,3 +15,5 @@
 /home/justthedreamer/Projects/wsei/Restaurator/Infrastructure/obj/Debug/net8.0/Infrastructure.pdb
 /home/justthedreamer/Projects/wsei/Restaurator/Infrastructure/obj/Debug/net8.0/Infrastructure.genruntimeconfig.cache
 /home/justthedreamer/Projects/wsei/Restaurator/Infrastructure/obj/Debug/net8.0/ref/Infrastructure.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Infrastructure/bin/Debug/net8.0/Application.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Infrastructure/bin/Debug/net8.0/Application.pdb

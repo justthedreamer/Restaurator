@@ -15,7 +15,7 @@ public sealed record UserRole
         var isValid = value == Owner || value == Manager || value == Employee;
         if (!isValid)
         {
-            throw new InvalidUserRoleException();
+            throw new InvalidUserRoleException(value);
         }
 
         Value = value;

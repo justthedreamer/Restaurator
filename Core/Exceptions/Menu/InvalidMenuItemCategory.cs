@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Menu;
 
-public class InvalidMenuItemCategory() : CustomException("Invalid menu item category.");
+public class InvalidMenuItemCategory() : BadRequestException("Invalid menu item category.");

@@ -13,7 +13,7 @@ namespace Core.Model.OrderModel;
 /// </summary>
 public class RestaurantOrder : Order
 {
-    public Table? Table { get; private set; }
+    public Table Table { get; private set; }
 
     /// <summary>
     /// Set order state to complete.

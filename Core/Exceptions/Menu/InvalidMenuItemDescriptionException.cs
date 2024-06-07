@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Menu;
 
-public class InvalidMenuItemDescriptionException() : CustomException("Invalid menu item description.");
+public class InvalidMenuItemDescriptionException() : BadRequestException("Invalid menu item description.");

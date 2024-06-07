@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class ReservationNotFoundException() : CustomException("Reservation not found.");
+public class ReservationNotFoundException() : NotFoundException("Reservation not found.");

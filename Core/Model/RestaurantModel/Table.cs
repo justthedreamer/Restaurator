@@ -8,6 +8,7 @@ namespace Core.Model.RestaurantModel;
 public class Table
 {
     public TableId TableId { get; private set; }
+    public TableSign TableSign { get; private set; }
     public SeatsCount SeatsCount { get; private set; }
 
     /// <summary>
@@ -15,6 +16,8 @@ public class Table
     /// </summary>
     /// <param name="seatsCount">Seats count</param>
     internal void ChangeSeatsCount(ushort seatsCount) => SeatsCount = seatsCount;
+
+    internal void ChangeTableSign(TableSign tableSign) => TableSign = tableSign; 
     
     /// <summary>
     /// Empty constructor for Entity Framework
@@ -23,15 +26,17 @@ public class Table
     {
         
     }
-    
+
     /// <summary>
     /// General constructor
     /// </summary>
     /// <param name="tableId">Table ID</param>
+    /// <param name="tableSign">Table sign</param>
     /// <param name="seatsCount">Seats count</param>
-    public Table(TableId tableId, SeatsCount seatsCount)
+    public Table(TableId tableId,TableSign tableSign, SeatsCount seatsCount)
     {
         TableId = tableId;
+        TableSign = tableSign;
         SeatsCount = seatsCount;
     }
 }

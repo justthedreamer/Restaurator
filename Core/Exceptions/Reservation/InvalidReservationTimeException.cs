@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Reservation;
 
-public class InvalidReservationTimeException() : CustomException("Invalid reservation time.");
+public class InvalidReservationTimeException() : BadRequestException("Invalid reservation time.");

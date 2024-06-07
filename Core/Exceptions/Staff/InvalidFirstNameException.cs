@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Staff;
 
-public class InvalidFirstNameException(string message) : CustomException($"Incorrect First Name format : {message}");
+public class InvalidFirstNameException(string message) : BadRequestException($"Incorrect First Name format : {message}");

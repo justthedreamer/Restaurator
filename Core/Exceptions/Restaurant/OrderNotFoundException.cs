@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class OrderNotFoundException() : CustomException("Order not found.");
+public class OrderNotFoundException() : NotFoundException("Order not found.");

@@ -15,7 +15,8 @@ namespace Core.Model.OrderModel;
 /// </summary>
 public abstract class Order : ISoftDelete
 {
-    public OrderId OrderId { get; protected set; }
+    public OrderId OrderId { get; private set; }
+    public OrderNumber OrderNumber { get; private set; }
     public OrderType OrderType { get; protected set; }
     public OrderState OrderState { get; protected set; }
     public OrderCreateDate CreatedAt { get; protected set; }

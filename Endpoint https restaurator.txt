@@ -1,0 +1,54 @@
+Endpoint
+https://restaurator.com/owner
+GET : Owner Profile Info
+
+https://restaurator.com/owner/profile
+GET : Owner Profile info
+UPDATE : Update Profile Command 
+
+https://restaurator.com/owner/restaurants
+GET : Restaurants DTO
+POST : Create Restaurant Command
+
+https://restaurator.com/restaurant/{restaurant-id}
+GET : Restaurant DTO
+[Authorize(Owner Manager)]
+UPDATE : Update Restaurant Info Command
+[Authorize(Owner Manager)]
+DELETE : Delete Restaurant Command
+
+[Authorize(Owner Manager)]
+https://restaurator.com/restaurant/{restaurant-id}/employees
+GET : Employees Dto
+POST : Create Employee Command
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/employee/{employee-id}
+GET : Employee DTO
+UPDATE : Update Employee Command
+DELETE : Delete Employee Command
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/menu
+GET : Restaurant Menu DTO
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/menu-item/{menu-item-id}
+GET : Menu Item DTO
+UPDATE : Update Menu Item Command
+DELETE : Delete Menu Item Command
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/tables
+GET : Restaurant Tables DTO
+POST : Create Table Command
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/table/{table-id}
+GET : Restaurant Table DTO
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/reservations
+GET : Reservations DTO
+POST : Create Reservation Command
+
+https://restaurator.com/owner/restaurant/{restaurant-id}/reservation/{reservation-id}
+GET : Reservation DTO
+UPDATE : Update Reservation Command
+DELETE : Delete Reservation Command
+
+

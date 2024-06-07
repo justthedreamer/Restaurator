@@ -15,6 +15,9 @@ public class MenuItemConfiguration : IEntityTypeConfiguration<MenuItem>
 
         builder.HasKey(x => x.MenuItemId);
 
+        builder.Property(x => x.MenuItemName)
+            .HasConversion(x => x.Value, x => new MenuItemName(x));
+        
         builder.Property(x => x.Category)
             .HasConversion(x => x.Value, x => new MenuItemCategory(x));
 

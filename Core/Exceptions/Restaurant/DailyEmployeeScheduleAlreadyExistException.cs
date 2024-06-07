@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class DailyEmployeeScheduleAlreadyExistException() : CustomException("Daily employee schedule already exist.");
+public class DailyEmployeeScheduleAlreadyExistException() : ConflictException("Daily employee schedule already exist.");

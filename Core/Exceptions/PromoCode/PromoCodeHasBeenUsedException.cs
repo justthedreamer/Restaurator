@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.PromoCode;
 
-public class PromoCodeHasBeenUsedException() : CustomException("Promotional code has been used in one of the previous orders. Cannot apply changes.");
+public class PromoCodeHasBeenUsedException() : BadRequestException("Promotional code has been used in one of the previous orders. Cannot apply changes.");

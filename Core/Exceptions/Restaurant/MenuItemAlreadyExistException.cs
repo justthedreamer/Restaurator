@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class MenuItemAlreadyExistException() : CustomException("Menu item already exist");
+public class MenuItemAlreadyExistException() : ConflictException("Menu item already exist");

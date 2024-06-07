@@ -1,0 +1,27 @@
+@page
+@model Razor_App.Pages.SignInModel
+
+<div class="wrapper flex-column align-center justify-center">
+    <h1 class="font-gold text-center margin-1">Sign In</h1>
+
+    <div class="description font-white text-center">
+        <p>Sign in to your account.</p>
+    </div>
+
+    <div class="buttons center-div flex-column gap-05 margin-1">
+        <button class="gold-button" onclick="redirectTo('Owner')">Restaurant Owner</button>
+        <button class="white-button" onclick="redirectTo('Employee')">Employee</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    function redirectTo(action) {
+        if (action === 'Owner') {
+            window.location.href = '/SignIn/Owner';
+        } else if (action === 'Employee') {
+            window.location.href = '/SignIn/Employee';
+        }
+    }
+</script>
+}

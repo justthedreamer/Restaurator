@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class EmailNotFoundException() : CustomException("Email not found.");
+public class EmailNotFoundException() : NotFoundException("Email not found.");

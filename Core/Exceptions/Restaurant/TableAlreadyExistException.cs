@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class TableAlreadyExistException() : CustomException("Table already exist.");
+public class TableAlreadyExistException() : ConflictException("Table already exist.");

@@ -43,5 +43,5 @@ public class ServicesServiceSuccessScenarioTests
         service.ServicePrice.ShouldBe(price);
     }
 
-    private readonly IServicesService _servicesService = new ServicesServiceFailScenario(new ServicePolicy());
+    private readonly IServicesService _servicesService = new Core.Services.ServicesService(new ServicePolicy());
 }

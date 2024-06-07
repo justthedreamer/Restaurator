@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Schedule;
 
-public class InvalidTotalWorkHoursException() : CustomException("Invalid total work hours exception.");
+public class InvalidTotalWorkHoursException() : BadRequestException("Invalid total work hours exception.");

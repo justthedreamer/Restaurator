@@ -17,6 +17,7 @@ namespace Core.Model.RestaurantModel;
 public class Restaurant
 {
     public RestaurantId RestaurantId { get; private set; }
+    public RestaurantName RestaurantName { get; private set; }
     public Owner Owner { get; private set; }
     public Address Address { get; private set; }
     public IReadOnlyList<PhoneNumber> PublicPhoneNumbers { get; private set; } = new List<PhoneNumber>();
@@ -83,13 +84,13 @@ public class Restaurant
     /// Add new employee
     /// </summary>
     /// <param name="employee">New employee</param>
-    internal void AddEmployee(Employee employee) => Employees = Employees.AddItem(employee);
+    public void AddEmployee(Employee employee) => Employees = Employees.AddItem(employee);
 
     /// <summary>
     /// Remove employee
     /// </summary>
     /// <param name="employee">Employee to remove</param>
-    internal void RemoveEmployee(Employee employee) => Employees = Employees.RemoveItem(employee);
+    public void RemoveEmployee(Employee employee) => Employees = Employees.RemoveItem(employee);
 
     /// <summary>
     /// Add reservation
@@ -143,32 +144,19 @@ public class Restaurant
     }
 
     /// <summary>
-    /// Self constructor
-    /// </summary>
-    /// <param name="restaurantId">Restaurant ID</param>
-    /// <param name="owner">Owner</param>
-    /// <param name="address">Address</param>
-    /// <param name="menu">Menu</param>
-    public Restaurant(RestaurantId restaurantId, Owner owner, Address address, Menu menu)
-    {
-        RestaurantId = restaurantId;
-        Owner = owner;
-        Address = address;
-        Menu = menu;
-    }
-
-    /// <summary>
     /// General constructor
     /// </summary>
     /// <param name="restaurantId">Restaurant ID</param>
+    /// <param name="restaurantName">Restaurant name</param>
     /// <param name="owner">Owner</param>
     /// <param name="address">Address</param>
     /// <param name="publicPhoneNumbers">Public phone numbers</param>
     /// <param name="publicEmails">Public email addresses</param>
-    public Restaurant(Guid restaurantId, Owner owner, Address address, List<PhoneNumber> publicPhoneNumbers,
+    public Restaurant(Guid restaurantId,RestaurantName restaurantName, Owner owner, Address address, List<PhoneNumber> publicPhoneNumbers,
         List<Email> publicEmails)
     {
         RestaurantId = restaurantId;
+        RestaurantName = restaurantName;
         Owner = owner;
         Address = address;
         PublicPhoneNumbers = publicPhoneNumbers;

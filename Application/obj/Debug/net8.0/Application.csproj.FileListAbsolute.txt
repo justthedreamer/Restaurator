@@ -1,0 +1,16 @@
+/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Application.deps.json
+/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Application.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Application.pdb
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/refint/Application.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.pdb
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/ref/Application.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Core.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Core.pdb
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.csproj.CopyComplete
+/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll

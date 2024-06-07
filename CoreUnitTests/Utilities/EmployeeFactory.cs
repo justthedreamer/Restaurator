@@ -19,6 +19,6 @@ public static class EmployeeFactory
     public static Employee CreateEmployeeWaiter(UserId employeeId)
     {
         return new Employee(employeeId,"adam.malysz", "Adam", "Małysz", new Credentials("email@email.com", "password"),
-            EmployeePosition.Waiter);
+            EmployeePosition.Waiter,"698123578");
     }
 }

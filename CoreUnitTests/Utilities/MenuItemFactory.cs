@@ -29,7 +29,7 @@ public static class MenuItemFactory
         var description = "Description";
         var prepareTime = new PrepareTime("10 min");
 
-        var menuItem = new MenuItem(id, category, price, description, prepareTime);
+        var menuItem = new MenuItem(id,"Kabanosy", category, price, description, prepareTime);
 
         return menuItem;
     }

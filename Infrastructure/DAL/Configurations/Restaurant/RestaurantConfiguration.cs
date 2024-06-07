@@ -15,6 +15,9 @@ public class RestaurantConfiguration : IEntityTypeConfiguration<Core.Model.Resta
 
         builder.HasKey(x => x.RestaurantId);
 
+        builder.Property(x => x.RestaurantName)
+            .HasConversion(x => x.Value, x => new RestaurantName(x));
+        
         builder.HasOne<Owner>()
             .WithMany(x => x.Restaurants);
 

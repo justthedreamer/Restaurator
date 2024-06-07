@@ -14,6 +14,12 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.HasKey(x => x.OrderId);
 
+        builder.Property(x => x.OrderNumber)
+            .HasConversion(x => x.Value, x => new OrderNumber(x));
+
+        builder.Property(x => x.OrderNumber)
+            .UseIdentityColumn();
+        
         builder.Property(x => x.OrderType)
             .HasConversion(x => x.Value, x => new OrderType(x));
 

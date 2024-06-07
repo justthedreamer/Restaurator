@@ -1,0 +1,2 @@
+namespace Application.DTO.User;
+

@@ -101,7 +101,7 @@ public class RestaurantServiceSuccessScenarioTests
     {
         //Assert
         var restaurant = RestaurantFactory.CreateRestaurant(Guid.NewGuid());
-        var table = new Table(Guid.NewGuid(), 4);
+        var table = new Table(Guid.NewGuid(), "A1", 4);
 
         //Act
         _restaurantService.AddTable(restaurant, table, userRole);
@@ -117,9 +117,10 @@ public class RestaurantServiceSuccessScenarioTests
     {
         //Assert
         var restaurant = RestaurantFactory.CreateRestaurant(Guid.NewGuid());
-        var table = new Table(Guid.NewGuid(), 4);
+        var table = new Table(Guid.NewGuid(), "A1", 4);
+
         restaurant.AddTable(table);
-        
+
         //Act
         _restaurantService.RemoveTable(restaurant, table, userRole);
 
@@ -133,14 +134,14 @@ public class RestaurantServiceSuccessScenarioTests
         //Arrange
         var restaurant = RestaurantFactory.CreateRestaurant();
         var order = OrderFactory.CreateRestaurantOrder();
-        
+
         //Act
-        _restaurantService.AddOrder(restaurant,order);
-        
+        _restaurantService.AddOrder(restaurant, order);
+
         //Assert
         restaurant.Orders.ShouldContain(order);
     }
-    
+
     [Fact]
     public void remove_order_restaurant_order_list_should_not_contains_order()
     {
@@ -148,10 +149,10 @@ public class RestaurantServiceSuccessScenarioTests
         var restaurant = RestaurantFactory.CreateRestaurant();
         var order = OrderFactory.CreateRestaurantOrder();
         restaurant.AddOrder(order);
-        
+
         //Act
-        _restaurantService.RemoveOrder(restaurant,order);
-        
+        _restaurantService.RemoveOrder(restaurant, order);
+
         //Assert
         restaurant.Orders.ShouldNotContain(order);
     }
@@ -161,28 +162,30 @@ public class RestaurantServiceSuccessScenarioTests
     {
         //Arrange
         var restaurant = RestaurantFactory.CreateRestaurant();
-        var table = new Table(Guid.NewGuid(), 2);
+        var table = new Table(Guid.NewGuid(), "A1", 4);
+
         var reservation = ReservationFactory.CreateReservation(table);
-        
+
         //Act
-        _restaurantService.AddReservation(restaurant,reservation);
-        
+        _restaurantService.AddReservation(restaurant, reservation);
+
         //Assert
         restaurant.Reservations.ShouldContain(reservation);
     }
-    
+
     [Fact]
     public void remove_reservation_restaurant_reservations_list_should_not_contains_reservation()
     {
         //Arrange
         var restaurant = RestaurantFactory.CreateRestaurant();
-        var table = new Table(Guid.NewGuid(), 2);
+        var table = new Table(Guid.NewGuid(), "A1", 4);
+
         var reservation = ReservationFactory.CreateReservation(table);
         restaurant.AddReservation(reservation);
-        
+
         //Act
-        _restaurantService.RemoveReservation(restaurant,reservation);
-        
+        _restaurantService.RemoveReservation(restaurant, reservation);
+
         //Assert
         restaurant.Reservations.ShouldNotContain(reservation);
     }
@@ -195,14 +198,14 @@ public class RestaurantServiceSuccessScenarioTests
         //Arrange
         var restaurant = RestaurantFactory.CreateRestaurant();
         var service = ServiceFactory.CreateService();
-        
+
         //Act
-        _restaurantService.AddService(restaurant,service,userRole);
-        
+        _restaurantService.AddService(restaurant, service, userRole);
+
         //Assert
         restaurant.Services.ShouldContain(service);
     }
-    
+
     [Theory]
     [InlineData(UserRole.Manager)]
     [InlineData(UserRole.Owner)]
@@ -212,13 +215,13 @@ public class RestaurantServiceSuccessScenarioTests
         var restaurant = RestaurantFactory.CreateRestaurant();
         var service = ServiceFactory.CreateService();
         restaurant.AddService(service);
-        
+
         //Act
-        _restaurantService.RemoveService(restaurant,service,userRole);
-        
+        _restaurantService.RemoveService(restaurant, service, userRole);
+
         //Assert
         restaurant.Services.ShouldNotContain(service);
     }
-    
-    private readonly IRestaurantService _restaurantService = new RestaurantServiceFailScenario(new RestaurantPolicy());
+
+    private readonly IRestaurantService _restaurantService = new Core.Services.RestaurantService(new RestaurantPolicy());
 }

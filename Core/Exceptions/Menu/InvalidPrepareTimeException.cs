@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Menu;
 
-public class InvalidPrepareTimeException() : CustomException("Invalid prepare time.");
+public class InvalidPrepareTimeException() : BadRequestException("Invalid prepare time.");

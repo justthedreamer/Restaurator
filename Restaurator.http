@@ -1,0 +1,31 @@
+@signInUrl = http://localhost:5180/sign-in
+@ownerUrl = http://localhost:5180/owner
+
+###
+# @name sign_in
+POST {{signInUrl}}/owner
+Content-Type: application/json
+
+{
+    "Email" : "john.doe@email.com",
+    "Password" : "johndoe12345"
+}
+
+GET {{ownerUrl}}
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+
+###
+@accessToken = {{sign_in.response.body.$.accessToken}}
+
+###
+GET {{signInUrl}}
+Authorization: Bearer {{accessToken}}
+
+@restaurantUrl = http://localhost:5180/restaurant
+@restaurantId = "00000000-0000-0000-0000-000000000001"
+
+###
+GET {{restaurantUrl}}/{{restaurantId}}
+Content-Type: application/json

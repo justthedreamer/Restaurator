@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class EmailAlreadyExistException() : CustomException("Email already exist.");
+public class EmailAlreadyExistException() : ConflictException("Email already exist.");

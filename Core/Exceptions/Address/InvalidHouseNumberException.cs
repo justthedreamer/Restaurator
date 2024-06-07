@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Address;
 
-public class InvalidHouseNumberException() : CustomException("Invalid house number.");
+public class InvalidHouseNumberException() : BadRequestException("Invalid house number.");

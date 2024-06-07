@@ -12,7 +12,7 @@ namespace Core.Model.FinancesModel;
 /// </summary>
 public abstract class ReceiptRow
 {
-    public Guid ReceiptRowId { get; set; }
+    public Guid ReceiptRowId { get; protected set; }
     public Price DefaultPrice { get; protected set; }
     public Price FinalPrice { get; protected set; }
 

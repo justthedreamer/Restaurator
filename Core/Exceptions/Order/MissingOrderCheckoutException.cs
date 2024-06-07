@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Order;
 
-public class MissingOrderCheckoutException() : CustomException("Missing order checkout.");
+public class MissingOrderCheckoutException() : BadRequestException("Missing order checkout.");

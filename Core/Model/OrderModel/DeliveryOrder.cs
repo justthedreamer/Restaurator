@@ -21,7 +21,7 @@ public class DeliveryOrder : Order
     public LastName CustomerLastName { get; private set; }
     public Address CustomerAddress { get; private set; }
     public PhoneNumber CustomerPhoneNumber { get; private set; }
-    public Employee Courier { get; private set; }
+    public Employee? Courier { get; private set; }
 
     /// <summary>
     /// Empty constructor for Entity Framework
@@ -31,7 +31,22 @@ public class DeliveryOrder : Order
     }
 
     /// <summary>
-    /// Set order state to delivered.
+    /// Get order to delivery
+    /// </summary>
+    /// <param name="courier">Courier</param>
+    public void GetToDelivery(Employee courier)
+    {
+        if (OrderState != OrderState.Ready)
+        {
+            throw new InvalidOrderStateException(OrderState,"Order have to be in state Ready to process delivery.");
+        }
+        
+        OrderState = OrderState.InDelivery;
+        Courier = courier;
+    }
+    
+    /// <summary>
+    /// Set order state to deliver.
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
     protected override void MarkOrderAsComplete()
@@ -55,7 +70,7 @@ public class DeliveryOrder : Order
     public DeliveryOrder(OrderId orderId, OrderState orderState, OrderCreateDate createDate,
         List<MenuItem> menuItems,List<Service> services,
         FirstName customerFirstName, LastName customerLastName, Address customerAddress,
-        PhoneNumber customerPhoneNumber, Employee courier) : base(orderId, orderState, createDate, menuItems, services)
+        PhoneNumber customerPhoneNumber, Employee? courier) : base(orderId, orderState, createDate, menuItems, services)
     {
         CustomerFirstName = customerFirstName;
         CustomerLastName = customerLastName;

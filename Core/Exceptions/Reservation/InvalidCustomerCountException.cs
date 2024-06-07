@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Reservation;
 
-public class InvalidCustomerCountException() : CustomException("Invalid customer count. Value should be more than 0.");
+public class InvalidCustomerCountException() : BadRequestException("Invalid customer count. Value should be more than 0.");

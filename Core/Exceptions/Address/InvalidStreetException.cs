@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Address;
 
-public class InvalidStreetException() : CustomException("Invalid street exception");
+public class InvalidStreetException() : BadRequestException("Invalid street exception");

@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Policies;
 
-public class ScheduleServicePolicyException(string message) : CustomException(message);
+public class ScheduleServicePolicyException(string message) : BadRequestException(message);

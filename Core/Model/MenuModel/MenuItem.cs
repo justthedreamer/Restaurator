@@ -9,6 +9,7 @@ namespace Core.Model.MenuModel;
 public class MenuItem : ISoftDelete
 {
     public MenuItemId MenuItemId { get; private set; } = default!;
+    public MenuItemName MenuItemName { get; private set; }
     public MenuItemCategory Category { get; private set; } = default!;
     public Price RetailPrice { get; private set; } = default!;
     public List<Ingredient> Ingredients { get; private set; } = new();
@@ -44,15 +45,17 @@ public class MenuItem : ISoftDelete
     /// General constructor
     /// </summary>
     /// <param name="menuItemId">Menu item ID</param>
+    /// <param name="menuItemName">Menu item name</param>
     /// <param name="category">Menu item Category</param>
     /// <param name="retailPrice">Menu item Price</param>
     /// <param name="description">Menu item retail description</param>
     /// <param name="prepareTime">Estimated preparation time</param>
     /// <param name="ingredients">Ingredients list</param>
-    public MenuItem(MenuItemId menuItemId, MenuItemCategory category, Price retailPrice, MenuItemDescription? description,
+    public MenuItem(MenuItemId menuItemId,MenuItemName menuItemName, MenuItemCategory category, Price retailPrice, MenuItemDescription? description,
         PrepareTime? prepareTime, List<Ingredient>? ingredients = null)
     {
         MenuItemId = menuItemId;
+        MenuItemName = menuItemName;
         Category = category;
         RetailPrice = retailPrice;
         Description = description;

@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Payment;
 
-public class InvalidPaymentMethodException() : CustomException("Invalid payment method.");
+public class InvalidPaymentMethodException() : BadRequestException("Invalid payment method.");

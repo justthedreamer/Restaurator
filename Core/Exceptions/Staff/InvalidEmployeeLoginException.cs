@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Staff;
 
-public class InvalidEmployeeLoginException() : CustomException("Invalid employee login.");
+public class InvalidEmployeeLoginException() : BadRequestException($"Invalid employee login.");

@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Menu;
 
-public class InvalidIngredientCategoryException() : CustomException("Invalid ingredient category");
+public class InvalidIngredientCategoryException() : BadRequestException("Invalid ingredient category");

@@ -1,4 +1,5 @@
 using System.Security.AccessControl;
+using Core.ValueObject.Common;
 using Core.ValueObject.Staff.Employee;
 using Core.ValueObject.Staff.User;
 
@@ -11,6 +12,7 @@ public class Employee : User, ISoftDelete
 {
     public EmployeeLogin EmployeeLogin { get; private set; }
     public EmployeePosition EmployeePosition { get; private set; }
+    public PhoneNumber PhoneNumber { get; private set; } //todo
     public bool IsDeleted { get; set; } = false;
 
     /// <summary>
@@ -54,11 +56,13 @@ public class Employee : User, ISoftDelete
     /// <param name="lastName">Last name</param>
     /// <param name="credentials">Credentials</param>
     /// <param name="employeePosition">Position</param>
+    /// <param name="phoneNumber">Phone number</param>
     public Employee(UserId userId,EmployeeLogin employeeLogin, FirstName firstName, LastName lastName, Credentials credentials,
-        EmployeePosition employeePosition) : base(userId, UserRole.Employee, firstName, lastName, credentials)
+        EmployeePosition employeePosition,PhoneNumber phoneNumber) : base(userId, UserRole.Employee, firstName, lastName, credentials)
     {
         EmployeeLogin = employeeLogin;
         EmployeePosition = employeePosition;
+        PhoneNumber = phoneNumber;
     }
 
    

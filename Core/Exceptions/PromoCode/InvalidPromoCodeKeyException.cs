@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.PromoCode;
 
-public class InvalidPromoCodeKeyException() : CustomException("Invalid promo code key.");
+public class InvalidPromoCodeKeyException() : BadRequestException("Invalid promo code key.");

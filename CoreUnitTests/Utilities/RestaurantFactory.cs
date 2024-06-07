@@ -18,11 +18,12 @@ public static class RestaurantFactory
     public static Restaurant CreateRestaurant()
     {
         var restaurantId = Guid.NewGuid();
+        var restaurantName = "Restaurant test";
         var owner = new Owner(Guid.NewGuid(),UserRole.Owner, "John", "Doe",new Credentials("adres@adres.com","password"));
         var address = new Address("Cracow", "Downtown", "15/14");
         var phoneNumbers = new List<PhoneNumber> { "666666666" };
         var emails = new List<Email>() { "email@email.com" };
-        var restaurant = new Restaurant(restaurantId, owner, address, phoneNumbers, emails);
+        var restaurant = new Restaurant(restaurantId,restaurantName, owner, address, phoneNumbers, emails);
 
         return restaurant;
     }
@@ -34,11 +35,12 @@ public static class RestaurantFactory
     /// <returns></returns>
     public static Restaurant CreateRestaurant(RestaurantId restaurantId)
     {
+        var restaurantName = "Restaurant test";
         var owner = new Owner(Guid.NewGuid(),UserRole.Owner, "John", "Doe",new Credentials("adres@adres.com","password"));
         var address = new Address("Cracow", "Downtown", "15/14");
         var phoneNumbers = new List<PhoneNumber> { "666666666" };
         var emails = new List<Email>() { "email@email.com" };
-        var restaurant = new Restaurant(restaurantId, owner, address, phoneNumbers, emails);
+        var restaurant = new Restaurant(restaurantId,restaurantName, owner, address, phoneNumbers, emails);
 
         return restaurant;
     }

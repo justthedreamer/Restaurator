@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Restaurator";
+}
+<div class="wrapper flex-column align-center justify-center">
+    <h1 class="font-gold text-center margin-1">Restaurator</h1>
+
+    <div class="description font-white text-center">
+        <p>Professional restaurant manage tool.</p>
+        <span>Sign up to discover!</span>
+    </div>
+
+    <div class="buttons center-div flex-column gap-05 margin-1">
+        <button class="gold-button" onclick="redirectTo('SignUp')">Sign Up</button>
+        <button class="white-button" onclick="redirectTo('SignIn')">Sign In</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function redirectTo(action) {
+            if (action === 'SignUp') {
+                window.location.href = '/SignUp';
+            } else if (action === 'SignIn') {
+                window.location.href = '/SignIn';
+            }
+        }
+    </script>
+}

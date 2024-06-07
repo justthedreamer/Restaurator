@@ -1,4 +1,6 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.PromoCode;
 
 public class InvalidRangeDatePromoCodeDatesException()
-    : CustomException("Invalid provided dates for range promo code.");
+    : BadRequestException("Invalid provided dates for range promo code.");

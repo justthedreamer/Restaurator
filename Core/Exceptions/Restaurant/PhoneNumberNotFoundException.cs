@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class PhoneNumberNotFoundException() : CustomException("Phone number not found.");
+public class PhoneNumberNotFoundException() : NotFoundException("Phone number not found.");

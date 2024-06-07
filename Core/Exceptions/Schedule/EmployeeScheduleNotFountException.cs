@@ -2,4 +2,4 @@ using Core.ValueObject.Schedule;
 
 namespace Core.Exceptions.Schedule;
 
-public class EmployeeScheduleNotFountException(EmployeeScheduleId id) : CustomException($"Cannot find employee schedule with provided ID : {id}");
+public class EmployeeScheduleNotFountException(EmployeeScheduleId id) : NotFoundException($"Cannot find employee schedule with provided ID : {id}");

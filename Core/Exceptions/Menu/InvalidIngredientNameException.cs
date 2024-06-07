@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Menu;
 
-public class InvalidIngredientNameException() : CustomException("Invalid ingredient name exception.");
+public class InvalidIngredientNameException() : BadRequestException("Invalid ingredient name exception.");

@@ -1,3 +1,3 @@
 namespace Core.Exceptions.Restaurant;
 
-public class PhoneNumberAlreadyExistException() : CustomException("Phone number already exist.");
+public class PhoneNumberAlreadyExistException() : ConflictException("Phone number already exist.");

@@ -14,10 +14,10 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         builder.Property(x => x.UserId).HasConversion(x => x.Value, x => new UserId(x));
 
         builder.HasKey(x => x.UserId);
-        
+
         builder.Property(x => x.UserRole)
             .HasConversion(x => x.Value, x => new UserRole(x));
-        
+
         builder.Property(x => x.EmployeeLogin)
             .HasConversion(x => x.Value, x => new EmployeeLogin(x))
             .IsRequired();
@@ -32,7 +32,7 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
 
         builder.Property(x => x.FirstName)
             .HasConversion(x => x.Value, x => new FirstName(x));
-        
+
         builder.Property(x => x.LastName)
             .HasConversion(x => x.Value, x => new LastName(x));
 
@@ -44,6 +44,9 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
 
         builder.Property(x => x.IsDeleted)
             .HasDefaultValue(false);
+
+        builder.Property(x => x.PhoneNumber)
+            .HasConversion(x => x.Value, x => new PhoneNumber(x));
 
         builder.HasQueryFilter(x => !x.IsDeleted);
     }

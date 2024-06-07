@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Payment;
 
-public class InvalidPaymentStateException() : CustomException("Invalid payment state.");
+public class InvalidPaymentStateException() : BadRequestException("Invalid payment state.");

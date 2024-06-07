@@ -1,3 +1,5 @@
+using Core.Exceptions.User;
+
 namespace Core.Exceptions.Address;
 
-public class InvalidCityException() : CustomException("Invalid city.");
+public class InvalidCityException() : BadRequestException("Invalid city.");

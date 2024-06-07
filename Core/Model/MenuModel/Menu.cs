@@ -1,3 +1,4 @@
+using Core.Model.ServicesModel;
 using Core.ValueObject.Menu;
 
 namespace Core.Model.MenuModel;
@@ -9,7 +10,7 @@ public class Menu
 {
     public MenuId MenuId { get; private set; } = default!;
     public List<MenuItem> MenuItems { get; private set; } = new();
-
+    
     internal void AddMenuItem(MenuItem menuItem) => MenuItems.Add(menuItem);
     internal void RemoveMenuItem(MenuItem menuItem) => MenuItems.Remove(menuItem);
     

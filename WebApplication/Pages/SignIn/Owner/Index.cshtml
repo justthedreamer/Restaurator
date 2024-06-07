@@ -1,0 +1,13 @@
+@page
+@model OwnerSignInModel
+
+<div class="wrapper flex-column align-center justify-center">
+    <h1 class="font-gold text-center margin-1">Employee</h1>
+    <form method="post" class="flex-column gap-05 margin-1" asp-action="OwnerModel">
+        <label class="font-white" for="Login">Login</label>
+        <input type="text" id="Login" name="Login" asp-for="Login">
+        <label class="font-white" for="Password">Password</label>
+        <input type="password" id="Password" name="Password" asp-for="Password">
+        <button type="submit">Submit</button>
+    </form>
+</div>

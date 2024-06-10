@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uD8c0sUM+jzwI1Fp7Nj9paj08WjqNl0fF9vXwTq+AslfK6snrm2XSOoxKsZFbfKTeMHh+qRuahil/ej7O+w9ig==",
+  "dgSpecHash": "LdnG887Hf/QkfKXlfgJ7w2uQ18TlKqWxuJGR8hpx6Rbrn3RbnsMxt8tvjksqll7sPmevg82Y7A6LPTahVKWWRw==",
   "success": true,
   "projectFilePath": "/home/justthedreamer/Projects/wsei/Restaurator/WebAPI/WebAPI.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,7 @@
     "/home/justthedreamer/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/microsoft.extensions.configuration.binder/8.0.1/microsoft.extensions.configuration.binder.8.0.1.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
-    "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.1/microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencymodel/8.0.0/microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/microsoft.extensions.diagnostics.abstractions/8.0.0/microsoft.extensions.diagnostics.abstractions.8.0.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/microsoft.extensions.fileproviders.abstractions/8.0.0/microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",

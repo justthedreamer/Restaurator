@@ -11,6 +11,9 @@ public static class Extensions
         services.AddScoped<ICommandHandler<EmployeeSignInCommand>, EmployeeSignInHandler>();
         services.AddScoped<ICommandHandler<OwnerSignInCommand>, OwnerSignInHandler>();
         services.AddScoped<ICommandHandler<SignUpCommand>, SignUpHandler>();
+        services.AddScoped<ICommandHandler<CreateDailySchedule>, CreateDailyScheduleHandler>();
+        services.AddScoped<ICommandHandler<CreateEmployeeSchedule>, CreateEmployeeScheduleHandler>();
+        services.AddScoped<ICommandHandler<CreateRestaurantOrder>, CreateRestaurantOrderHandler>();
         
         return services;
     }

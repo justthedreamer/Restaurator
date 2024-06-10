@@ -33,13 +33,11 @@ public class TakeAwayOrder : Order
     /// <param name="orderId">ID</param>
     /// <param name="orderState">Order state</param>
     /// <param name="createDate">Create date</param>
-    /// <param name="menuItems">Menu items</param>
-    /// <param name="services">Services</param>
     /// <param name="customerFirstName">Customer First Name</param>
     /// <param name="customerLastName">Customer Last Name</param>
-    public TakeAwayOrder(OrderId orderId, OrderState orderState, OrderCreateDate createDate, List<MenuItem> menuItems,
-        List<Service> services, FirstName customerFirstName, LastName customerLastName) : base(orderId, orderState,
-        createDate, menuItems, services)
+    public TakeAwayOrder(OrderId orderId, OrderState orderState, OrderCreateDate createDate,
+        FirstName customerFirstName, LastName customerLastName) : base(orderId, orderState,
+        createDate)
     {
         CustomerFirstName = customerFirstName;
         CustomerLastName = customerLastName;

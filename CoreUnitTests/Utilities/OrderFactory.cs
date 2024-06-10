@@ -1,5 +1,6 @@
 using Core.Model.MenuModel;
 using Core.Model.OrderModel;
+using Core.Model.RestaurantModel;
 using Core.Model.ServicesModel;
 using Core.ValueObject.Order;
 
@@ -12,6 +13,6 @@ public static class OrderFactory
         var id = Guid.NewGuid();
         var orderState = OrderState.Ready;
         
-        return new RestaurantOrder(id,orderState,DateTime.Now,new List<MenuItem>(),new List<Service>(),null);
+        return new RestaurantOrder(id,orderState,DateTime.Now,new Table(Guid.NewGuid(),"A1",4));
     }
 }

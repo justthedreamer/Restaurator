@@ -28,9 +28,8 @@ public static class ScheduleFactory
         var id = Guid.NewGuid();
         var currentDate = DateTime.Now;
         var scheduleDate = new DailyScheduleDate(DateOnly.FromDateTime(currentDate));
-        var scheduleList = new List<EmployeeSchedule>();
 
-        return new DailyEmployeeSchedule(id, scheduleDate, scheduleList);
+        return new DailyEmployeeSchedule(id, scheduleDate);
     }
     
     
@@ -44,9 +43,8 @@ public static class ScheduleFactory
         var id = dailyEmployeeScheduleId;
         var currentDate = DateTime.Now;
         var scheduleDate = new DailyScheduleDate(DateOnly.FromDateTime(currentDate));
-        var scheduleList = new List<EmployeeSchedule>();
 
-        return new DailyEmployeeSchedule(id, scheduleDate, scheduleList);
+        return new DailyEmployeeSchedule(id, scheduleDate);
     }
 
     /// <summary>

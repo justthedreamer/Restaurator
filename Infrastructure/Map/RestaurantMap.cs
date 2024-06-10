@@ -7,12 +7,12 @@ using Core.Model.ServicesModel;
 
 namespace Infrastructure.Map;
 
-internal partial class RestauratorMap
+internal partial class MainMapProfile
 {
-    partial void InitializeRestaurantMapping()
+    partial void ApplyRestaurantMapping()
     {
         CreateMap<Restaurant, RestaurantProfileDto>()
-            .ForMember(dto => dto.Id, ex => ex.MapFrom(r => _encryptionService.EncryptGuid(r.RestaurantId)))
+            .ForMember(dto => dto.Id, ex => ex.MapFrom(r => r.RestaurantId))
             .ForMember(dto => dto.Name, ex => ex.MapFrom(r => r.RestaurantName.Value))
             .ForMember(dto => dto.ContactEmails, ex => ex.MapFrom(r => r.PublicEmails.Select(e => e.Value)))
             .ForMember(dto => dto.ContactNumbers, ex => ex.MapFrom(r => r.PublicPhoneNumbers.Select(e => e.Value)))
@@ -34,5 +34,10 @@ internal partial class RestauratorMap
         CreateMap<Reservation, ReservationDto>()
             .ForMember(dto => dto.Id, ex => ex.MapFrom(r => r.ReservationId))
             .ForMember(dto => dto.TableSign, ex => ex.MapFrom(r => r.Table.TableSign));
+
+        CreateMap<Table, TableDto>()
+            .ForMember(dto => dto.TableId, ex => ex.MapFrom(t => t.TableId.Value))
+            .ForMember(dto => dto.TableSign, ex => ex.MapFrom(t => t.TableSign.Value))
+            .ForMember(dto => dto.SeatsCount, ex => ex.MapFrom(t => t.SeatsCount.Value));
     }
 }

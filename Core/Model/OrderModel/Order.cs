@@ -7,6 +7,7 @@ using Core.Utilities;
 using Core.ValueObject.Finances;
 using Core.ValueObject.Order;
 using Core.ValueObject.Payment;
+using Core.ValueObject.Restaurant;
 
 namespace Core.Model.OrderModel;
 
@@ -16,6 +17,7 @@ namespace Core.Model.OrderModel;
 public abstract class Order : ISoftDelete
 {
     public OrderId OrderId { get; private set; }
+    public RestaurantId RestaurantId { get; private set; }
     public OrderNumber OrderNumber { get; private set; }
     public OrderType OrderType { get; protected set; }
     public OrderState OrderState { get; protected set; }
@@ -143,15 +145,10 @@ public abstract class Order : ISoftDelete
     /// <param name="orderId">Order ID</param>
     /// <param name="orderState">Order state</param>
     /// <param name="createDate">Order deadline</param>
-    /// <param name="menuItems">Dish list</param>
-    /// <param name="services">Services list</param>
-    protected Order(OrderId orderId, OrderState orderState, OrderCreateDate createDate, List<MenuItem> menuItems,
-        List<Service> services)
+    protected Order(OrderId orderId, OrderState orderState, OrderCreateDate createDate)
     {
         OrderId = orderId;
         OrderState = orderState;
         CreatedAt = createDate;
-        MenuItems = menuItems;
-        Services = services;
     }
 }

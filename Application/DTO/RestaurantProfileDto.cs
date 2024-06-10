@@ -11,7 +11,7 @@ namespace Application.DTO;
 
 public sealed class RestaurantProfileDto
 {
-    public required string Id { get; init; }
+    public required Guid Id { get; init; }
     public required string Name { get; init; }
     public required AddressDto Address { get; init; }
     public required IEnumerable<string> ContactNumbers { get; init; }

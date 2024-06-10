@@ -30,7 +30,7 @@ public class SchedulePolicyTests
         var dailyId = Guid.NewGuid();
         var dailyDate = new DailyScheduleDate(DateOnly.FromDateTime(currentDate));
         var scheduleList = new List<EmployeeSchedule>() { schedule1 };
-        var dailyEmployeeSchedule = new DailyEmployeeSchedule(dailyId, dailyDate, scheduleList);
+        var dailyEmployeeSchedule = new DailyEmployeeSchedule(dailyId, dailyDate);
 
         //Act
         var result = _schedulePolicy.CanApply(dailyEmployeeSchedule, schedule2);
@@ -57,7 +57,7 @@ public class SchedulePolicyTests
         var dailyId = Guid.NewGuid();
         var dailyDate = new DailyScheduleDate(DateOnly.FromDateTime(currentDate));
         var scheduleList = new List<EmployeeSchedule>() { schedule };
-        var dailyEmployeeSchedule = new DailyEmployeeSchedule(dailyId, dailyDate, scheduleList);
+        var dailyEmployeeSchedule = new DailyEmployeeSchedule(dailyId, dailyDate);
 
         //Act
         var result = _schedulePolicy.CanChangeDate(dateToChange.Item1, dateToChange.Item2);

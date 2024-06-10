@@ -10,7 +10,7 @@ public class DailyEmployeeSchedule
 {
     public DailyEmployeeScheduleId DailyEmployeeScheduleId { get; private set; }
     public DailyScheduleDate DailyScheduleDate { get; private set; }
-    public IReadOnlyList<EmployeeSchedule> EmployeeSchedules { get; private set; }
+    public IReadOnlyList<EmployeeSchedule> EmployeeSchedules { get; private set; } = new List<EmployeeSchedule>();
 
     /// <summary>
     /// Add new schedule to list.
@@ -31,19 +31,16 @@ public class DailyEmployeeSchedule
     /// </summary>
     private DailyEmployeeSchedule()
     {
-        
     }
-    
+
     /// <summary>
     /// General constructor
     /// </summary>
     /// <param name="dailyEmployeeScheduleId"></param>
     /// <param name="dailyScheduleDate"></param>
-    /// <param name="employeeSchedules"></param>
-    public DailyEmployeeSchedule(DailyEmployeeScheduleId dailyEmployeeScheduleId, DailyScheduleDate dailyScheduleDate, List<EmployeeSchedule> employeeSchedules)
+    public DailyEmployeeSchedule(DailyEmployeeScheduleId dailyEmployeeScheduleId, DailyScheduleDate dailyScheduleDate)
     {
         DailyEmployeeScheduleId = dailyEmployeeScheduleId;
         DailyScheduleDate = dailyScheduleDate.Value;
-        EmployeeSchedules = employeeSchedules;
     }
 }

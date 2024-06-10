@@ -9,6 +9,7 @@ internal static class Extensions
     {
         services.AddScoped<IEmployeeRepository,EmployeeRepository>();
         services.AddScoped<IOwnerRepository, OwnerRepository>();
+        services.AddScoped<IRestaurantRepository, RestaurantRepository>();
         
         return services;
     }

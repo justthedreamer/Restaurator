@@ -4,9 +4,9 @@ namespace Core.ValueObject.Price;
 
 public sealed record Price
 {
-    public double Value { get; }
+    public decimal Value { get; }
 
-    public Price(double value)
+    public Price(decimal value)
     {
         if (value < 0)
         {
@@ -15,6 +15,6 @@ public sealed record Price
         Value = value;
     }
 
-    public static implicit operator Price(double value) => new(value);
-    public static implicit operator double(Price price) => price.Value;
+    public static implicit operator Price(decimal value) => new(value);
+    public static implicit operator decimal(Price price) => price.Value;
 }

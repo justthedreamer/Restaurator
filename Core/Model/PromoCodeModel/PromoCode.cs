@@ -20,7 +20,7 @@ public abstract class PromoCode
     public IReadOnlyList<MenuItem> MenuItems { get; protected set; } = new List<MenuItem>();
     public IReadOnlyList<Service> Services { get; protected set; } = new List<Service>();
     public bool IsDeleted { get; private set; } = false;
-    
+
     /// <summary>
     /// Change promo code value.
     /// </summary>
@@ -84,7 +84,7 @@ public abstract class PromoCode
         {
             case PromoCodeValueType.Percentage:
             {
-                return price - (price * PromoCodeValue * 0.01);
+                return price - (price * PromoCodeValue * (decimal)0.01);
             }
             case PromoCodeValueType.Cash:
             {

@@ -10,8 +10,6 @@ internal static class Extensions
 {
     internal static IServiceCollection AddSecurity(this IServiceCollection services,IConfiguration configuration)
     {
-        services.Configure<GuidEncryptionOptions>(configuration.GetSection("guid-encryption"));
-        services.AddSingleton<IGuidEncryptionService,GuidEncryptionService>();
         services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
         services.AddSingleton<IPasswordManager, PasswordManager>();
         return services;

@@ -31,9 +31,11 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PaymentMethod")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaymentState")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ReceiptId");
@@ -47,11 +49,11 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double>("DefaultPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("DefaultPrice")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<double>("FinalPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("FinalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("RECEIPT ROW TYPE")
                         .IsRequired()
@@ -80,8 +82,8 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("IngredientId");
 
@@ -125,8 +127,8 @@ namespace Infrastructure.Migrations
                     b.Property<string>("PrepareTime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("RetailPrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("RetailPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("MenuItemId");
 
@@ -171,7 +173,7 @@ namespace Infrastructure.Migrations
                     b.Property<Guid?>("ReceiptId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("RestaurantId")
+                    b.Property<Guid>("RestaurantId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("OrderId");
@@ -376,8 +378,8 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("ServicePrice")
-                        .HasColumnType("float");
+                    b.Property<decimal>("ServicePrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ServiceId");
 
@@ -682,7 +684,9 @@ namespace Infrastructure.Migrations
 
                     b.HasOne("Core.Model.RestaurantModel.Restaurant", null)
                         .WithMany("Orders")
-                        .HasForeignKey("RestaurantId");
+                        .HasForeignKey("RestaurantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("PromoCode");
 

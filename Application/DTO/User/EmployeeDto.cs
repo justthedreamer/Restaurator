@@ -5,10 +5,10 @@ namespace Application.DTO.User;
 
 public sealed class EmployeeDto
 {
-    public required UserId EmployeeId { get; init; }
-    public required EmployeeLogin Login { get; init; }
-    public required FirstName FirstName { get; init; }
-    public required LastName LastName { get; init; }
-    public required EmployeePosition Position { get; init; }
-    public required UserRole Role { get; init; }
+    public required Guid EmployeeId { get; init; }
+    public required string Login { get; init; }
+    public required string FirstName { get; init; }
+    public required string LastName { get; init; }
+    public required string Position { get; init; }
+    public required string Role { get; init; }
 }

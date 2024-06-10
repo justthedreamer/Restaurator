@@ -38,13 +38,13 @@ public class DeliveryOrder : Order
     {
         if (OrderState != OrderState.Ready)
         {
-            throw new InvalidOrderStateException(OrderState,"Order have to be in state Ready to process delivery.");
+            throw new InvalidOrderStateException(OrderState, "Order have to be in state Ready to process delivery.");
         }
-        
+
         OrderState = OrderState.InDelivery;
         Courier = courier;
     }
-    
+
     /// <summary>
     /// Set order state to deliver.
     /// </summary>
@@ -53,24 +53,21 @@ public class DeliveryOrder : Order
     {
         OrderState = OrderState.Delivered;
     }
-    
+
     /// <summary>
     /// General constructor
     /// </summary>
     /// <param name="orderId">Order ID</param>
     /// <param name="orderState">Order State</param>
     /// <param name="createDate">Order deadline</param>
-    /// <param name="menuItems">Dish list</param>
-    /// <param name="services"></param>
     /// <param name="customerFirstName">Customer First Name</param>
     /// <param name="customerLastName">Customer Last Name</param>
     /// <param name="customerAddress">Customer Address</param>
     /// <param name="customerPhoneNumber">Customer Phone number</param>
     /// <param name="courier">Delivery man (Employee)</param>
     public DeliveryOrder(OrderId orderId, OrderState orderState, OrderCreateDate createDate,
-        List<MenuItem> menuItems,List<Service> services,
         FirstName customerFirstName, LastName customerLastName, Address customerAddress,
-        PhoneNumber customerPhoneNumber, Employee? courier) : base(orderId, orderState, createDate, menuItems, services)
+        PhoneNumber customerPhoneNumber, Employee? courier) : base(orderId, orderState, createDate)
     {
         CustomerFirstName = customerFirstName;
         CustomerLastName = customerLastName;
@@ -79,6 +76,4 @@ public class DeliveryOrder : Order
         Courier = courier;
         OrderType = OrderType.DeliveryOrder;
     }
-
-
 }

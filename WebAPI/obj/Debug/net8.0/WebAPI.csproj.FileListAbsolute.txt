@@ -146,3 +146,5 @@
 /home/justthedreamer/Projects/wsei/Restaurator/WebAPI/bin/Debug/net8.0/AutoMapper.dll
 /home/justthedreamer/Projects/wsei/Restaurator/WebAPI/bin/Debug/net8.0/Newtonsoft.Json.dll
 /home/justthedreamer/Projects/wsei/Restaurator/WebAPI/bin/Debug/net8.0/Newtonsoft.Json.xml
+/home/justthedreamer/Projects/wsei/Restaurator/WebAPI/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/justthedreamer/Projects/wsei/Restaurator/WebAPI/obj/Debug/net8.0/WebAPI.sourcelink.json

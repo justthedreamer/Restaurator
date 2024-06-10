@@ -4,5 +4,6 @@ namespace Application.DTO;
 
 public class MenuItemReceiptRowDto : ReceiptRowDto
 {
-    public required MenuItemDto MenuItemDto { get; init; }
+    public Guid MenuItemId { get; set; }
+    public required string MenuItemName { get; set; }
 }

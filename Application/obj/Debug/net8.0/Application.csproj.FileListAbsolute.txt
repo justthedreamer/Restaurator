@@ -13,4 +13,4 @@
 /home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Core.pdb
 /home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
 /home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.csproj.CopyComplete
-/home/justthedreamer/Projects/wsei/Restaurator/Application/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/justthedreamer/Projects/wsei/Restaurator/Application/obj/Debug/net8.0/Application.sourcelink.json

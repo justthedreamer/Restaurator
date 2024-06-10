@@ -5,6 +5,7 @@ using Application.Queries.Abstraction;
 using AutoMapper;
 using Core.Model.MenuModel;
 using Core.Model.ServicesModel;
+using Core.ValueObject.Restaurant;
 using Infrastructure.DAL;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,13 +16,14 @@ internal sealed class GetRestaurantMenuHandler(RestauratorDbContext dbContext, I
 {
     public async Task<MenuDto> HandleAsync(GetRestaurantMenu query)
     {
+        var restaurantId = new RestaurantId(query.RestaurantId);
         var restaurant = await dbContext.Restaurants
             .AsNoTracking()
             .Include(r => r.Menu)
             .ThenInclude(m => m.MenuItems)
             .ThenInclude(x => x.Ingredients)
             .Include(r => r.Services)
-            .SingleOrDefaultAsync(r => r.RestaurantId.Value == query.RestaurantId);
+            .SingleOrDefaultAsync(r => r.RestaurantId == restaurantId);
 
         if (restaurant is null)
         {

@@ -56,9 +56,10 @@ public class Employee : User, ISoftDelete
     /// <param name="lastName">Last name</param>
     /// <param name="credentials">Credentials</param>
     /// <param name="employeePosition">Position</param>
+    /// <param name="userRole">User role</param>
     /// <param name="phoneNumber">Phone number</param>
     public Employee(UserId userId,EmployeeLogin employeeLogin, FirstName firstName, LastName lastName, Credentials credentials,
-        EmployeePosition employeePosition,PhoneNumber phoneNumber) : base(userId, UserRole.Employee, firstName, lastName, credentials)
+        EmployeePosition employeePosition,UserRole userRole,PhoneNumber phoneNumber) : base(userId, userRole, firstName, lastName, credentials)
     {
         EmployeeLogin = employeeLogin;
         EmployeePosition = employeePosition;

@@ -4,6 +4,7 @@ using Application.Queries;
 using Application.Queries.Abstraction;
 using AutoMapper;
 using Core.Model.StaffModel;
+using Core.ValueObject.Restaurant;
 using Infrastructure.DAL;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +15,10 @@ internal class GetRestaurantEmployeesHandler(RestauratorDbContext dbContext, IMa
 {
     public async Task<IEnumerable<EmployeeDto>> HandleAsync(GetRestaurantEmployees query)
     {
+        var restaurantId = new RestaurantId(query.RestaurantId);
         var restaurant = await dbContext.Restaurants.AsNoTracking()
             .Include(restaurant => restaurant.Employees)
-            .SingleOrDefaultAsync(r => r.RestaurantId.Value == query.RestaurantId);
+            .SingleOrDefaultAsync(r => r.RestaurantId == restaurantId);
 
 
         if (restaurant is null)

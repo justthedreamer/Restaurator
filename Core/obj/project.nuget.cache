@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "19xGJL88+QQG49YQJQXgkUSDKCOfpUKWyzSKyLn40Gzs9hxQYF9GbECPX5SHzhR42aBMIVkUqkkmixuvwGaGuQ==",
+  "dgSpecHash": "94hs1e4BM/4vEcOs8PTVeF8FkiYNBeKvjx+luiqM5wJ3NORpftT/W94+nD5N5aJbFvvI9BlOQjUyGbsPfWbLeQ==",
   "success": true,
   "projectFilePath": "/home/justthedreamer/Projects/wsei/Restaurator/Core/Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.1/microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

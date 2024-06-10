@@ -41,7 +41,10 @@ public class RestaurantConfiguration : IEntityTypeConfiguration<Core.Model.Resta
 
         builder.HasMany(x => x.Tables);
 
-        builder.HasMany(x => x.Orders);
+        builder
+            .HasMany(x => x.Orders)
+            .WithOne()
+            .HasForeignKey(o => o.RestaurantId);
 
         builder.HasMany(x => x.Employees);
 

@@ -4,6 +4,7 @@ using Application.Queries;
 using Application.Queries.Abstraction;
 using AutoMapper;
 using Core.Model.ReservationModel;
+using Core.ValueObject.Restaurant;
 using Infrastructure.DAL;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +14,12 @@ internal sealed class GetRestaurantReservationsHandler(RestauratorDbContext dbCo
 {
     public async Task<IEnumerable<ReservationDto>> HandleAsync(GetRestaurantReservations query)
     {
+        var restaurantId = new RestaurantId(query.RestaurantId);
         var restaurant = await dbContext.Restaurants
             .AsNoTracking()
             .Include(r => r.Reservations)
             .ThenInclude(r => r.Table)
-            .SingleOrDefaultAsync(r => r.RestaurantId.Value == query.RestaurantId);
+            .SingleOrDefaultAsync(r => r.RestaurantId == restaurantId);
 
         if (restaurant is null)
         {

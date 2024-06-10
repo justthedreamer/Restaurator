@@ -18,8 +18,6 @@ internal class GetRestaurantProfileHandler(RestauratorDbContext dbContext,IMappe
     {
 
         var restaurantId = new RestaurantId(query.restaurantId);
-
-        
         var restaurant = await dbContext.Restaurants
             .AsNoTracking()
             .SingleOrDefaultAsync(r => r.RestaurantId == restaurantId);

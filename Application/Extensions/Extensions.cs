@@ -2,6 +2,7 @@ using System.ComponentModel.Design;
 using Application.Commands.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace Application.Extensions;
 
 public static class Extensions

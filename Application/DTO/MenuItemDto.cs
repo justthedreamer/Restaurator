@@ -6,11 +6,11 @@ namespace Application.DTO;
 
 public sealed class MenuItemDto
 {
-    public required MenuItemId Id { get; init; }
-    public required MenuItemName Name { get; init; }
-    public required MenuItemCategory Category { get; init; }
-    public required Price Price { get; init; }
-    public MenuItemDescription? Description { get; init; }
-    public PrepareTime? PrepareTime { get; init; }
+    public required Guid Id { get; init; }
+    public required string Name { get; init; }
+    public required string Category { get; init; }
+    public required decimal Price { get; init; }
+    public string? Description { get; init; }
+    public string? PrepareTime { get; init; }
     public required IEnumerable<string> Ingredients { get; init; }
 }

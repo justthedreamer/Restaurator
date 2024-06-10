@@ -12,8 +12,8 @@ public class Receipt
     public DateTime DateOfIssue { get; private set; }
     public IReadOnlyList<MenuItemReceiptRow> MenuItemReceiptRows { get; }
     public IReadOnlyList<ServiceReceiptRow> ServiceReceiptRows { get; }
-    public PaymentMethod? PaymentMethod { get; private set; }
-    public PaymentState? PaymentState { get; private set; }
+    public PaymentMethod PaymentMethod { get; private set; }
+    public PaymentState PaymentState { get; private set; }
 
     /// <summary>
     /// Update payment method

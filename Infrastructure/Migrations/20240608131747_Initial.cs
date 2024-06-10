@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace Infrastructure.Migrations
                     IngredientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IngredientName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IngredientCategory = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -80,8 +80,8 @@ namespace Infrastructure.Migrations
                 {
                     ReceiptId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DateOfIssue = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PaymentState = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PaymentState = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,7 +95,7 @@ namespace Infrastructure.Migrations
                     MenuItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MenuItemName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RetailPrice = table.Column<double>(type: "float", nullable: false),
+                    RetailPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PrepareTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
@@ -233,6 +233,7 @@ namespace Infrastructure.Migrations
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EmployeeLogin = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     EmployeePosition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     RestaurantId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserRole = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -277,7 +278,7 @@ namespace Infrastructure.Migrations
                 {
                     ServiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ServiceName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ServicePrice = table.Column<double>(type: "float", nullable: false),
+                    ServicePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     RestaurantId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
@@ -365,8 +366,8 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     ReceiptRowId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DefaultPrice = table.Column<double>(type: "float", nullable: false),
-                    FinalPrice = table.Column<double>(type: "float", nullable: false),
+                    DefaultPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    FinalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     RECEIPTROWTYPE = table.Column<string>(name: "RECEIPT ROW TYPE", type: "nvarchar(21)", maxLength: 21, nullable: false),
                     MenuItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ReceiptId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -405,6 +406,7 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RestaurantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     OrderNumber = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderType = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -414,7 +416,6 @@ namespace Infrastructure.Migrations
                     OrderMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ReceiptId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    RestaurantId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CustomerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerAddress_City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -448,12 +449,14 @@ namespace Infrastructure.Migrations
                         name: "FK_Orders_Restaurants_RestaurantId",
                         column: x => x.RestaurantId,
                         principalTable: "Restaurants",
-                        principalColumn: "RestaurantId");
+                        principalColumn: "RestaurantId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Orders_Tables_TableId",
                         column: x => x.TableId,
                         principalTable: "Tables",
-                        principalColumn: "TableId");
+                        principalColumn: "TableId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

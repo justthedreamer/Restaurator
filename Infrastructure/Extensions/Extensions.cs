@@ -21,9 +21,7 @@ public static class Extensions
 
         services.AddSecurity(configuration);
         services.AddRepositories();
-        services.AddSingleton(provider =>
-            new MapperConfiguration(cfg =>
-                cfg.AddProfile(new RestauratorMap(provider.GetService<IGuidEncryptionService>()!))).CreateMapper());
+        services.AddAutoMapper(cfg => cfg.AddProfile(typeof(MainMapProfile)));
         services.AddQueryHandlers();
         
         

@@ -38,9 +38,8 @@ public class RestaurantOrder : Order
     /// <param name="orderState">Order state</param>
     /// <param name="createDate">Order deadline</param>
     /// <param name="table">Customers table</param>
-    /// <param name="menuItems">Dish list</param>
-    public RestaurantOrder(OrderId orderId, OrderState orderState, OrderCreateDate createDate, List<MenuItem> menuItems,List<Service> services,
-        Table? table) : base(orderId, orderState, createDate, menuItems,services)
+    public RestaurantOrder(OrderId orderId, OrderState orderState, OrderCreateDate createDate,
+        Table table) : base(orderId, orderState, createDate)
     {
         Table = table;
         OrderType = OrderType.RestaurantOrder;

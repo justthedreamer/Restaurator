@@ -17,6 +17,10 @@ public static class Extensions
         services.AddScoped<IQueryHandler<GetRestaurantOrders, IEnumerable<OrderDto>>,GetRestaurantOrdersHandler>();
         services.AddScoped<IQueryHandler<GetRestaurantProfile, RestaurantProfileDto>,GetRestaurantProfileHandler>();
         services.AddScoped<IQueryHandler<GetRestaurantReservations, IEnumerable<ReservationDto>>,GetRestaurantReservationsHandler>();
+        services.AddScoped<IQueryHandler<GetRestaurantSchedules, IEnumerable<DailyEmployeeScheduleDto>>,GetRestaurantSchedulesHandler>();
+        services.AddScoped<IQueryHandler<GetDailySchedule, DailyEmployeeScheduleDto>,GetDailyScheduleHandler>();
+        services.AddScoped<IQueryHandler<GetRestaurantTables, IEnumerable<TableDto>>,GetRestaurantTablesHandler>();
         return services;
+        
     }
 }

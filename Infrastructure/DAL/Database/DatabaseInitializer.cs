@@ -13,29 +13,36 @@ namespace Infrastructure.DAL.Database;
 /// Represent database initializer
 /// </summary>
 /// <param name="serviceProvider">Service provider <see cref="IServiceProvider"/></param>
-internal sealed class DatabaseInitializer(IServiceProvider serviceProvider,IPasswordManager passwordManager,IRestaurantService restaurantService) : IHostedService
+internal sealed class DatabaseInitializer(IServiceProvider serviceProvider,IPasswordManager passwordManager,IRestaurantService restaurantService,IScheduleService scheduleService) : IHostedService
 {
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
         using var scope = serviceProvider.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<RestauratorDbContext>();
-        await dbContext.Database.EnsureDeletedAsync();
+        await dbContext.Database.EnsureDeletedAsync(cancellationToken);
         await dbContext.Database.MigrateAsync(cancellationToken);
         
-        if (await dbContext.Owners.AnyAsync(cancellationToken))
-        {
-            return;
-        }
-
         var dbFactory = new DatabaseInitFactory(passwordManager,restaurantService);
+
         var owner = dbFactory.CreateOwner();
         var restaurant = dbFactory.CreateRestaurant(owner);
         var employees = dbFactory.CreateEmployees();
-
+        
         foreach (var employee in employees)
         {
             restaurant.AddEmployee(employee);
+        }
+
+        var schedule = dbFactory.CreateSchedule();
+
+        restaurantService.AddDailyEmployeeSchedule(restaurant,schedule,UserRole.Owner);
+
+        var employeeSchedules = dbFactory.CreateDailyEmployeeSchedule(employees);
+
+        foreach (var employeeSchedule in employeeSchedules)
+        {
+            scheduleService.AddSchedule(schedule,employeeSchedule,UserRole.Owner);
         }
         
         await dbContext.AddAsync(owner, cancellationToken);

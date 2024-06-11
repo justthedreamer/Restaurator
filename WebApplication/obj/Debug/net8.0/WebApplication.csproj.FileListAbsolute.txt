@@ -31,3 +31,9 @@
 /home/justthedreamer/Projects/wsei/Restaurator/WebApplication/bin/Debug/net8.0/Newtonsoft.Json.dll
 /home/justthedreamer/Projects/wsei/Restaurator/WebApplication/obj/Debug/net8.0/WebApplication.csproj.AssemblyReference.cache
 /home/justthedreamer/Projects/wsei/Restaurator/WebApplication/obj/Debug/net8.0/WebApplication.csproj.CopyComplete
+/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/obj/Debug/net8.0/WebApplication.sourcelink.json
+/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll

@@ -3,6 +3,7 @@ using Core.Model.MenuModel;
 using Core.Model.ServicesModel;
 using Core.ValueObject.Price;
 using Core.ValueObject.PromoCode;
+using Core.ValueObject.Restaurant;
 
 namespace Core.Model.PromoCodeModel;
 
@@ -12,6 +13,7 @@ namespace Core.Model.PromoCodeModel;
 public abstract class PromoCode
 {
     public PromoCodeId PromoCodeId { get; private set; }
+    public RestaurantId RestaurantId { get; private set; }
     public PromoCodeName PromoCodeName { get; private set; }
     public PromoCodeState PromoCodeState { get; private set; }
     public PromoCodeKey PromoCodeKey { get; private set; }

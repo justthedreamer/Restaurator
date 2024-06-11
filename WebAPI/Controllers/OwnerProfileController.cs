@@ -14,6 +14,7 @@ public class OwnerProfileController
     : ControllerBase
 {
     [HttpGet]
+    [Authorize("is-owner")]
     public async Task<ActionResult<OwnerProfileDto>> Get()
     {
         var userId = HttpContext.User.Identity?.Name;

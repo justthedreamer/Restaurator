@@ -1,4 +1,5 @@
 using Core.ValueObject.Price;
+using Core.ValueObject.Restaurant;
 using Core.ValueObject.Service;
 
 namespace Core.Model.ServicesModel;
@@ -6,11 +7,20 @@ namespace Core.Model.ServicesModel;
 /// <summary>
 /// Represent restaurant service
 /// </summary>
-public class Service
+public class Service : ISoftDelete
 {
     public ServiceId ServiceId { get; private set; }
     public ServiceName ServiceName { get; private set; }
     public Price ServicePrice { get; private set; }
+    public bool IsDeleted { get; set; } = false;
+
+    /// <summary>
+    /// Mark object as deleted.
+    /// </summary>
+    public void SoftDelete()
+    {
+        IsDeleted = true;
+    }
 
     /// <summary>
     /// Change service name

@@ -17,7 +17,7 @@ public class EmployeeSignInHandler(IEmployeeRepository employeeRepository, IPass
 {
     public async Task HandleAsync(EmployeeSignInCommand command)
     {
-        var employee = await employeeRepository.GetEmployeeByLogin(command.Login);
+        var employee = await employeeRepository.GetEmployeeByLoginAsync(command.Login);
 
         if (employee is null)
             throw new EmployeeNotFoundException();

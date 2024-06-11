@@ -1,10 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "aUY3WQqvwHOmsFzy1+O3REsb2tAcQyA7u8Qlgu6ob1Wyx+RjgX2OWdGfGOqDOyOwrFtgBYei83Jdjf/JVDJ7sg==",
+  "dgSpecHash": "SNejMCskqxcf0xvUoFIpnbaDO64ugyE+rsN6qzTqQInHn9XgZ8t9jHEBugSlOdUjhMpQt1USOJNs2m4gt8wMtQ==",
   "success": true,
   "projectFilePath": "/home/justthedreamer/Projects/wsei/Restaurator/WebApplication/WebApplication.csproj",
   "expectedPackageFiles": [
-    "/home/justthedreamer/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.logging/8.0.0/microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.identitymodel.abstractions/7.6.0/microsoft.identitymodel.abstractions.7.6.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.6.0/microsoft.identitymodel.jsonwebtokens.7.6.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.identitymodel.logging/7.6.0/microsoft.identitymodel.logging.7.6.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/microsoft.identitymodel.tokens/7.6.0/microsoft.identitymodel.tokens.7.6.0.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/system.identitymodel.tokens.jwt/7.6.0/system.identitymodel.tokens.jwt.7.6.0.nupkg.sha512"
   ],
   "logs": []
 }

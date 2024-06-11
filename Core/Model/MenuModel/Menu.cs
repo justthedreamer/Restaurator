@@ -1,5 +1,6 @@
 using Core.Model.ServicesModel;
 using Core.ValueObject.Menu;
+using Core.ValueObject.Restaurant;
 
 namespace Core.Model.MenuModel;
 

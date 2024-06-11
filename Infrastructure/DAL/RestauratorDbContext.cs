@@ -95,6 +95,5 @@ internal sealed class RestauratorDbContext : DbContext
                 softDelete.SoftDelete();
             }
         }
-        
     }
 }

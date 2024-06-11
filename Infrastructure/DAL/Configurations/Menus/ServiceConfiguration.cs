@@ -20,5 +20,8 @@ public class ServiceConfiguration : IEntityTypeConfiguration<Service>
 
         builder.Property(x => x.ServicePrice)
             .HasConversion(x => x.Value, x => new Price(x));
+        
+        builder.Property(x => x.IsDeleted)
+            .HasDefaultValue(false);
     }
 }

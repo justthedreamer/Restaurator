@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8dZDaedZpncqT1nWMtPBd+xRnMHH8470gPNqy5m66+ZzF2p0+5WJRM/1iEO9+o+EDS8rYhWPpHXteH1s6KjcoQ==",
+  "dgSpecHash": "CgVpZzPSe7EjEtS/wDSyaceExnqsbaXtJnUzPmnO9ZP4dk33OwReASkclv9R1GWjiuTn95Z/xxmi15EcsgET5Q==",
   "success": true,
   "projectFilePath": "/home/justthedreamer/Projects/wsei/Restaurator/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,7 @@
     "/home/justthedreamer/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/justthedreamer/.nuget/packages/scrutor/4.2.2/scrutor.4.2.2.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/home/justthedreamer/.nuget/packages/system.composition/6.0.0/system.composition.6.0.0.nupkg.sha512",

@@ -1,5 +1,6 @@
 using Core.Model.RestaurantModel;
 using Core.ValueObject.Reservation;
+using Core.ValueObject.Restaurant;
 using Core.ValueObject.Staff.Employee;
 
 namespace Core.Model.ReservationModel;
@@ -10,6 +11,7 @@ namespace Core.Model.ReservationModel;
 public class Reservation
 {
     public ReservationId ReservationId { get; private set; }
+    public RestaurantId RestaurantId { get; private set; }
     public Table Table { get; private set; }
     public FirstName CustomerFirstName { get; private set; }
     public LastName CustomerLastName { get; private set; }

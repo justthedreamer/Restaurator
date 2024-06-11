@@ -46,12 +46,29 @@ public class RestaurantConfiguration : IEntityTypeConfiguration<Core.Model.Resta
             .WithOne()
             .HasForeignKey(o => o.RestaurantId);
 
-        builder.HasMany(x => x.Employees);
+        builder.HasMany(x => x.PromoCodes)
+            .WithOne()
+            .HasForeignKey(p => p.RestaurantId);
+        
+        builder
+            .HasMany(x => x.Employees)
+            .WithOne()
+            .HasForeignKey(e => e.RestaurantId);
 
-        builder.HasMany(x => x.Reservations);
+        builder
+            .HasMany(x => x.Reservations)
+            .WithOne()
+            .HasForeignKey(r => r.RestaurantId);
 
-        builder.HasMany(x => x.Schedules);
+        builder
+            .HasMany(x => x.Schedules)
+            .WithOne()
+            .HasForeignKey(s => s.RestaurantId);
 
+        builder
+            .HasMany(x => x.Services)
+            .WithOne();
+        
         builder.HasOne(x => x.Menu);
     }
 }

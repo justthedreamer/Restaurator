@@ -41,7 +41,6 @@ internal static class Extensions
                 {
                     OnAuthenticationFailed = context =>
                     {
-                        //todo replace by system logger
                         Console.WriteLine(context.Exception);
                         return Task.CompletedTask;
                     }

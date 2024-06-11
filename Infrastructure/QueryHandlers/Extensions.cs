@@ -2,6 +2,7 @@ using Application.DTO;
 using Application.DTO.User;
 using Application.Queries;
 using Application.Queries.Abstraction;
+using Core.ValueObject.Staff.User;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.QueryHandlers;
@@ -10,17 +11,14 @@ public static class Extensions
 {
     public static IServiceCollection AddQueryHandlers(this IServiceCollection services)
     {
-        services.AddScoped<IQueryHandler<GetEmployeeProfile, EmployeeDto>,GetEmployeeProfileHandler>();
-        services.AddScoped<IQueryHandler<GetOwnerProfileQuery, OwnerProfileDto>,GetOwnerProfileHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantEmployees, IEnumerable<EmployeeDto>>,GetRestaurantEmployeesHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantMenu,MenuDto >,GetRestaurantMenuHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantOrders, IEnumerable<OrderDto>>,GetRestaurantOrdersHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantProfile, RestaurantProfileDto>,GetRestaurantProfileHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantReservations, IEnumerable<ReservationDto>>,GetRestaurantReservationsHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantSchedules, IEnumerable<DailyEmployeeScheduleDto>>,GetRestaurantSchedulesHandler>();
-        services.AddScoped<IQueryHandler<GetDailySchedule, DailyEmployeeScheduleDto>,GetDailyScheduleHandler>();
-        services.AddScoped<IQueryHandler<GetRestaurantTables, IEnumerable<TableDto>>,GetRestaurantTablesHandler>();
+        var infrastructureAssembly = typeof(AppOptions).Assembly;
+
+        services
+            .Scan(s => s.FromAssemblies(infrastructureAssembly)
+                .AddClasses(c => c.AssignableTo(typeof(IQueryHandler<,>)))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
+
         return services;
-        
     }
 }

@@ -1,4 +1,18 @@
 @page
 @model Razor_App.Pages.Owner.Index
 
-<h1>Owner Profile</h1>
+<nav class="user-nav">
+    <div id="user-name">@Model.Profile.OwnerDto.FirstName @Model.Profile.OwnerDto.LastName</div>
+</nav>
+
+<div>
+    <h2>Restaurants:</h2>
+    @foreach (var restaurant in Model.Profile.Restaurants)
+    {
+        <div class="restaurant">
+            <h3>@restaurant.Name</h3>
+            <span><i>@restaurant.Address.City @restaurant.Address.Street @restaurant.Address.HouseNumber</i></span>
+            <a asp-page="/Restaurant/Index" asp-route-restaurantId="@restaurant.Id">Manage</a>
+        </div>
+    }
+</div>

@@ -21,9 +21,7 @@ public static class RestaurantFactory
         var restaurantName = "Restaurant test";
         var owner = new Owner(Guid.NewGuid(),UserRole.Owner, "John", "Doe",new Credentials("adres@adres.com","password"));
         var address = new Address("Cracow", "Downtown", "15/14");
-        var phoneNumbers = new List<PhoneNumber> { "666666666" };
-        var emails = new List<Email>() { "email@email.com" };
-        var restaurant = new Restaurant(restaurantId,restaurantName, owner, address, phoneNumbers, emails);
+        var restaurant = new Restaurant(restaurantId,restaurantName, owner, address);
 
         return restaurant;
     }
@@ -38,9 +36,7 @@ public static class RestaurantFactory
         var restaurantName = "Restaurant test";
         var owner = new Owner(Guid.NewGuid(),UserRole.Owner, "John", "Doe",new Credentials("adres@adres.com","password"));
         var address = new Address("Cracow", "Downtown", "15/14");
-        var phoneNumbers = new List<PhoneNumber> { "666666666" };
-        var emails = new List<Email>() { "email@email.com" };
-        var restaurant = new Restaurant(restaurantId,restaurantName, owner, address, phoneNumbers, emails);
+        var restaurant = new Restaurant(restaurantId,restaurantName, owner, address);
 
         return restaurant;
     }
@@ -50,8 +46,6 @@ public static class RestaurantFactory
     {
         var restaurant = CreateRestaurant(restaurantId);
         var employee = EmployeeFactory.CreateEmployeeWaiter(Guid.NewGuid());
-
-        // restaurant.Employees.Add(employee);
 
         var schedule = EmployeeSchedule.CreateEmployeeSchedule(Guid.NewGuid(), employee, from, to,
             ScheduleState.WaitingForApproval);

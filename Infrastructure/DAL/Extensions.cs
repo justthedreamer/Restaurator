@@ -15,7 +15,7 @@ public static class Extensions
         services.AddDbContext<RestauratorDbContext>(options =>
             options.UseSqlServer(sqlServerOption.ConnectionString));
 
-        // services.AddHostedService<DatabaseInitializer>();
+        services.AddHostedService<DatabaseInitializer>();
 
         return services;
     }

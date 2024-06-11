@@ -1,6 +1,7 @@
 using Core.Model.OrderModel;
 using Core.ValueObject.Order;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.DAL.Configurations.Orders;
@@ -18,7 +19,10 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasConversion(x => x.Value, x => new OrderNumber(x));
 
         builder.Property(x => x.OrderNumber)
-            .UseIdentityColumn();
+            .UseIdentityColumn()
+            .ValueGeneratedOnAdd()
+            .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+
         
         builder.Property(x => x.OrderType)
             .HasConversion(x => x.Value, x => new OrderType(x));
@@ -51,5 +55,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.Property(x => x.IsDeleted)
             .HasDefaultValue(false);
+
+        builder.HasQueryFilter(x => !x.IsDeleted);
     }
 }

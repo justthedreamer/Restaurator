@@ -1,0 +1,27 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+message MenuItemDto {
+  string id = 1;
+  string name = 2;
+  string category = 3;
+  float price = 4;
+  string description = 5;
+  string prepare_time = 6;
+  repeated string ingredients = 7;
+}
+
+message ServiceDto {
+  string id = 1;
+  string name = 2;
+  float price = 3;
+}
+
+message MenuDto {
+  repeated MenuItemDto menu_items = 1;
+  repeated ServiceDto services = 2;
+}
+
+service RestaurantMenu {
+  rpc GetMenu (google.protobuf.Empty) returns (MenuDto);
+}

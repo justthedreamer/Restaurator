@@ -4,4 +4,7 @@ using Core.ValueObject.Restaurant;
 
 namespace Application.Queries;
 
-public sealed record GetRestaurantMenu(Guid RestaurantId) : IQuery<MenuDto>{}
+public sealed record GetRestaurantMenu : IQuery<MenuDto>
+{
+    public Guid RestaurantId { get; set; }
+}

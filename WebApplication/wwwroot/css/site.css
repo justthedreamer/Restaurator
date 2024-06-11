@@ -1,160 +1,168 @@
-:root {
-    --black: #151415;
-    --green: #24544F;
-    --red: #AC5949;
-    --blue: #244154;
-    --gold: #D2B839;
-    --white: #fbf2f2;
-    --white-smoke: #eae1e1;
-}
+/*:root {*/
+/*    --black: #151415;*/
+/*    --green: #24544F;*/
+/*    --red: #AC5949;*/
+/*    --blue: #244154;*/
+/*    --gold: #D2B839;*/
+/*    --white: #fbf2f2;*/
+/*    --white-smoke: #eae1e1;*/
+/*}*/
 
-* {
-    margin: 0;
-    padding: 0;
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*    font-family: "Roboto Light";*/
+/*}*/
+
+/*body {*/
+/*    background-color: #151415;*/
+/*}*/
+
+/*.wrapper{*/
+/*    width: 100%;*/
+/*    height: 100dvh;*/
+/*}*/
+
+/*.font-black {*/
+/*    color: var(--black);*/
+/*}*/
+
+/*.font-green {*/
+/*    color: var(--green);*/
+/*}*/
+
+/*.font-red {*/
+/*    color: var(--red);*/
+/*}*/
+
+/*.font-blue {*/
+/*    color: var(--blue);*/
+/*}*/
+
+/*.font-gold {*/
+/*    color: var(--gold);*/
+/*}*/
+
+/*.font-white {*/
+/*    color: var(--white);*/
+/*}*/
+
+/*.text-center {*/
+/*    text-align: center;*/
+/*}*/
+
+/*.margin-05 {*/
+/*    margin: .5rem;*/
+/*}*/
+
+/*.margin-1 {*/
+/*    margin: 1rem;*/
+/*}*/
+
+/*.margin-2 {*/
+/*    margin: 2rem;*/
+/*}*/
+
+/*.padding-05 {*/
+/*    padding: .5rem;*/
+/*}*/
+
+/*.padding-1 {*/
+/*    padding: 1rem;*/
+/*}*/
+
+/*.padding-2 {*/
+/*    padding: 2rem;*/
+/*}*/
+
+/*.padding-1-2 {*/
+/*    padding: 1rem 2rem;*/
+/*}*/
+
+/*.padding-2-1 {*/
+/*    padding: 2rem 1rem;*/
+/*}*/
+
+/*.p-inline-1 {*/
+/*    padding-inline: 1rem;*/
+/*}*/
+
+/*.p-inline-2 {*/
+/*    padding-inline: 2rem;*/
+/*}*/
+
+/*.flex-row {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
+
+/*.flex-column {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.flex-wrap {*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.align-center {*/
+/*    align-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.justify-center {*/
+/*    justify-content: center;*/
+/*    justify-items: center;*/
+/*}*/
+
+/*.gap-05 {*/
+/*    gap: .5rem;*/
+/*}*/
+
+/*.gap-1 {*/
+/*    gap: 1rem;*/
+/*}*/
+
+/*.gap-2 {*/
+/*    gap: 2rem;*/
+/*}*/
+
+/*.center-div {*/
+/*    margin-inline: auto;*/
+/*}*/
+
+/*button {*/
+/*    border: none;*/
+/*    border-radius: 10pt;*/
+/*}*/
+
+/*button:hover {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.gold-button {*/
+/*    padding: .5rem 2rem;*/
+/*    background-color: var(--gold);*/
+/*}*/
+
+/*.white-button {*/
+/*    padding: .5rem 2rem;*/
+/*    background-color: var(--white-smoke);*/
+/*}*/
+/*.sign-in-options{*/
+/*    gap: 1rem;*/
+/*}*/
+/*.sign-in-as-owner,.sign-in-as-employee {*/
+/*    background-color: var(--white-smoke);*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*}*/
+
+*{
     box-sizing: border-box;
-    font-family: "Roboto Light";
+    color: #1a1e21;
 }
-
-body {
-    background-color: #151415;
-}
-
-.wrapper{
-    width: 100%;
-    height: 100dvh;
-}
-
-.font-black {
-    color: var(--black);
-}
-
-.font-green {
-    color: var(--green);
-}
-
-.font-red {
-    color: var(--red);
-}
-
-.font-blue {
-    color: var(--blue);
-}
-
-.font-gold {
-    color: var(--gold);
-}
-
-.font-white {
-    color: var(--white);
-}
-
-.text-center {
-    text-align: center;
-}
-
-.margin-05 {
-    margin: .5rem;
-}
-
-.margin-1 {
-    margin: 1rem;
-}
-
-.margin-2 {
-    margin: 2rem;
-}
-
-.padding-05 {
-    padding: .5rem;
-}
-
-.padding-1 {
-    padding: 1rem;
-}
-
-.padding-2 {
-    padding: 2rem;
-}
-
-.padding-1-2 {
-    padding: 1rem 2rem;
-}
-
-.padding-2-1 {
-    padding: 2rem 1rem;
-}
-
-.p-inline-1 {
-    padding-inline: 1rem;
-}
-
-.p-inline-2 {
-    padding-inline: 2rem;
-}
-
-.flex-row {
-    display: flex;
-    flex-direction: row;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.align-center {
-    align-content: center;
-    align-items: center;
-}
-
-.justify-center {
-    justify-content: center;
-    justify-items: center;
-}
-
-.gap-05 {
-    gap: .5rem;
-}
-
-.gap-1 {
-    gap: 1rem;
-}
-
-.gap-2 {
-    gap: 2rem;
-}
-
-.center-div {
-    margin-inline: auto;
-}
-
-button {
-    border: none;
-    border-radius: 10pt;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-.gold-button {
-    padding: .5rem 2rem;
-    background-color: var(--gold);
-}
-
-.white-button {
-    padding: .5rem 2rem;
-    background-color: var(--white-smoke);
-}
-.sign-in-options{
-    gap: 1rem;
-}
-.sign-in-as-owner,.sign-in-as-employee {
-    background-color: var(--white-smoke);
-    width: 200px;
-    height: 200px;
+body{
+    background-color: ghostwhite;
 }

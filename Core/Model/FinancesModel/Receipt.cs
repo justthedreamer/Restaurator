@@ -1,5 +1,6 @@
 using Core.ValueObject.Finances;
 using Core.ValueObject.Payment;
+using Core.ValueObject.Price;
 
 namespace Core.Model.FinancesModel;
 
@@ -14,7 +15,31 @@ public class Receipt
     public IReadOnlyList<ServiceReceiptRow> ServiceReceiptRows { get; }
     public PaymentMethod PaymentMethod { get; private set; }
     public PaymentState PaymentState { get; private set; }
+    public Price DefaultPrice => GetDefaultPrice();
+    public Price FinalPrice => GetFinalPrice();
 
+    /// <summary>
+    /// Calculate default price
+    /// </summary>
+    /// <returns>Default price</returns>
+    private Price GetDefaultPrice()
+    {
+        var menuItems = MenuItemReceiptRows.Sum(x => x.DefaultPrice.Value);
+        var services = MenuItemReceiptRows.Sum(x => x.DefaultPrice.Value);
+        return menuItems + services;
+    }
+    
+    /// <summary>
+    /// Calculate final price
+    /// </summary>
+    /// <returns>Final price</returns>
+    private Price GetFinalPrice()
+    {
+        var menuItems = MenuItemReceiptRows.Sum(x => x.FinalPrice.Value);
+        var services = MenuItemReceiptRows.Sum(x => x.FinalPrice.Value);
+        return menuItems + services;
+    }
+    
     /// <summary>
     /// Update payment method
     /// </summary>

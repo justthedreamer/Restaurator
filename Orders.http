@@ -1,0 +1,197 @@
+@signInUrl = http://localhost:5180/sign-in
+
+### sign in as owner of restaurant to manage orders.
+# @name signIn
+POST {{signInUrl}}/owner
+Content-Type: application/json
+
+{
+  "Email": "john.doe@email.com",
+  "Password": "johndoe12345"
+}
+> {% client.global.set("accessToken", response.body.accessToken) %}
+
+###
+@restaurantId = 00000000-0000-0000-0000-000000000001
+@tableId = 00000000-0000-0000-0000-000000000001
+@menuItemId = 00000000-0000-0000-0000-000000000001
+@serviceId = 00000000-0000-0000-0000-000000000001
+@ordersUrl = http://localhost:5180/restaurant/{{restaurantId}}/orders
+
+##########################################################################################
+# RESTAURANT ORDERS
+##########################################################################################
+
+#GET ORDERS OF TYPE : RESTAURANT
+###
+GET {{ordersUrl}}/restaurant
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+
+
+#CREATE ORDER OF TYPE : RESTAURANT
+###
+POST {{ordersUrl}}/restaurant
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "tableId" : "{{tableId}}",
+  "menuItems" : ["{{menuItemId}}"],
+  "services" : ["{{serviceId}}"]
+}
+
+###
+#GET SPECIFY ORDER OF TYPE : RESTAURANT
+###                  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+@restaurantOrderId =  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+
+GET {{ordersUrl}}/restaurant/{{restaurantOrderId}}
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+##########################################################################################
+# TAKE AWAY ORDERS
+##########################################################################################
+
+#GET ORDERS OF TYPE : TAKE AWAY
+###
+GET {{ordersUrl}}/take-away
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+
+
+#CREATE ORDER OF TYPE : TAKE AWAY
+###
+POST {{ordersUrl}}/take-away
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "customerFirstName" : "Christopher",
+  "customerLastName" : "Cononovitsh",
+  "menuItems" : ["{{menuItemId}}"],
+  "services" : ["{{serviceId}}"]
+}
+
+###
+#GET SPECIFY ORDER OF TYPE : TAKE AWAY
+###                REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+@takeAwayOrderId =  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+
+GET {{ordersUrl}}/take-away/{{takeAwayOrderId}}
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+##########################################################################################
+# DELIVERY ORDERS
+##########################################################################################
+
+#GET ORDERS OF TYPE : DELIVERY
+###
+GET {{ordersUrl}}/delivery
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+
+
+#CREATE ORDER OF TYPE : DELIVERY
+###
+POST {{ordersUrl}}/delivery
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "customerFirstName" : "Christopher",
+  "customerLastName" : "Cononovitsh",
+  "customerCity" : "White-Hillside",
+  "customerStreet" : "School",
+  "customerHouseNumber" : "17",
+  "customerPhoneNumber" : "666-777-888",
+  "menuItems" : ["{{menuItemId}}"],
+  "services" : ["{{serviceId}}"]
+}
+
+###
+#GET SPECIFY ORDER OF TYPE : DELIVERY
+###               
+@deliveryOrderId = REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+
+GET {{ordersUrl}}/delivery/{{deliveryOrderId}}
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+##########################################################################################
+# MANAGE ORDERS
+##########################################################################################
+
+###
+#UPDATE ORDER STATE
+###               
+@orderToUpdateId =  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+###
+PATCH {{ordersUrl}}/{{orderToUpdateId}}/state
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "orderState" : "READY"
+}
+
+
+###
+#CHECKOUT THE ORDER
+###
+@orderToCheckoutId =  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+###
+PATCH {{ordersUrl}}/{{orderToCheckoutId}}/checkout
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "paymentMethod" : "CASH"
+}
+
+###
+#SETTLE THE ORDER
+###
+@orderToSettleId =  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+###
+PATCH {{ordersUrl}}/{{orderToSettleId}}/settle
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "orderMessage" : null
+}
+
+
+###
+#DELETE THE ORDER
+###
+@orderToDeleteId =  REPLECE VALUE BY ORDER ID FROM ABOVE REQUEST RESPONSE LOCATION HEADER.
+###
+DELETE {{ordersUrl}}/{{orderToDeleteId}}
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

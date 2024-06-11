@@ -8,9 +8,10 @@ namespace Application.DTO;
 
 public sealed class DeliveryOrderDto : OrderDto
 {
-    public required FirstName CustomerFirstName { get; init; }
-    public required LastName CustomerLastName { get; init; }
-    public required Address CustomerAddress { get; init; }
-    public required PhoneNumber CustomerPhoneNumber { get; init; }
-    public CourierDto? Courier { get; init; }
+    public required string CustomerFirstName { get; init; }
+    public required string CustomerLastName { get; init; }
+    public required string CustomerPhoneNumber { get; init; }
+    public string? CourierPhoneNumber { get; init; }
+    public required AddressDto CustomerAddress { get; init; }
 }
+

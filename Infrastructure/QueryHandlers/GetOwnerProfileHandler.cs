@@ -39,7 +39,12 @@ internal sealed class GetOwnerProfileHandler(RestauratorDbContext dbContext)
         var restaurants = owner.Restaurants.Select(x => new RestaurantProfileDto()
         {
             Id = x.RestaurantId,
-            Address = new AddressDto(x.Address.City, x.Address.Street, x.Address.HouseNumber),
+            Address = new AddressDto
+            {
+                City = x.Address.City.Value,
+                Street = x.Address.Street.Value,
+                HouseNumber = x.Address.HouseNumber.Value
+            },
             Name = x.RestaurantName,
             ContactNumbers = x.PublicPhoneNumbers.Select(pn => pn.Value),
             ContactEmails = x.PublicEmails.Select(e => e.Value),

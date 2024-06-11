@@ -13,7 +13,7 @@ namespace Razor_App.Pages.SignIn.Owner;
 /// </summary>
 public class OwnerSignInModel(IRestauratorApiClient restauratorApiClient,ITokenService tokenService) : PageModel
 {
-    [BindProperty] public string Login { get; set; }
+    [BindProperty] public string Email { get; set; }
     [BindProperty] public string Password { get; set; }
 
     public string? ErrorMessage { get; set; }
@@ -26,7 +26,7 @@ public class OwnerSignInModel(IRestauratorApiClient restauratorApiClient,ITokenS
     {
         var obj = new
         {
-            Login = Login,
+            Email = Email,
             Password = Password
         };
 
@@ -38,7 +38,7 @@ public class OwnerSignInModel(IRestauratorApiClient restauratorApiClient,ITokenS
         {
             var accessToken = await restauratorApiClient.GetAccessTokenFromResponseAsync(response);
             tokenService.SetAccessToken(accessToken!);
-            return RedirectToPage("/Owner");
+            return RedirectToPage("/Owner/Index");
         }
         else
         {

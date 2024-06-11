@@ -1,6 +1,7 @@
 using Core.Model.AddressModel;
 using Core.Model.MenuModel;
 using Core.Model.OrderModel;
+using Core.Model.PromoCodeModel;
 using Core.Model.ReservationModel;
 using Core.Model.ScheduleModel;
 using Core.Model.ServicesModel;
@@ -28,6 +29,7 @@ public class Restaurant
     public IReadOnlyList<Reservation> Reservations { get; private set; } = new List<Reservation>();
     public IReadOnlyList<DailyEmployeeSchedule> Schedules { get; private set; } = new List<DailyEmployeeSchedule>();
     public IReadOnlyList<Service> Services { get; private set; } = new List<Service>();
+    public IReadOnlyList<PromoCode> PromoCodes { get; set; } = new List<PromoCode>();
     public Menu Menu { get; private set; }
 
     /// <summary>
@@ -137,6 +139,18 @@ public class Restaurant
     internal void ChangeRestaurantAddress(Address address) => Address = address;
 
     /// <summary>
+    /// Add promotional code
+    /// </summary>
+    /// <param name="promoCode">New promotional code</param>
+    internal void AddPromoCode(PromoCode promoCode) => PromoCodes.AddItem(promoCode);
+
+    /// <summary>
+    /// Remove promotional code
+    /// </summary>
+    /// <param name="promoCode"></param>
+    internal void RemovePromoCode(PromoCode promoCode) => PromoCodes.RemoveItem(promoCode);
+    
+    /// <summary>
     /// Empty constructor for Entity Framework
     /// </summary>
     private Restaurant()
@@ -150,17 +164,12 @@ public class Restaurant
     /// <param name="restaurantName">Restaurant name</param>
     /// <param name="owner">Owner</param>
     /// <param name="address">Address</param>
-    /// <param name="publicPhoneNumbers">Public phone numbers</param>
-    /// <param name="publicEmails">Public email addresses</param>
-    public Restaurant(Guid restaurantId,RestaurantName restaurantName, Owner owner, Address address, List<PhoneNumber> publicPhoneNumbers,
-        List<Email> publicEmails)
+    public Restaurant(Guid restaurantId,RestaurantName restaurantName, Owner owner, Address address)
     {
         RestaurantId = restaurantId;
         RestaurantName = restaurantName;
         Owner = owner;
         Address = address;
-        PublicPhoneNumbers = publicPhoneNumbers;
-        PublicEmails = publicEmails;
         Menu = new Menu(Guid.NewGuid());
     }
 }

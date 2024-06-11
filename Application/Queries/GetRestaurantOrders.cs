@@ -6,6 +6,6 @@ using Core.ValueObject.Restaurant;
 namespace Application.Queries;
 
 public sealed record GetRestaurantOrders(Guid RestaurantId, DateTime? From, DateTime? To)
-    : IQuery<IEnumerable<OrderDto>>
+    : IQuery<IEnumerable<RestaurantOrderDto>>
 {
 }

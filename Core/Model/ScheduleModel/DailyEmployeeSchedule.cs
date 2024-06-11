@@ -1,4 +1,5 @@
 using Core.Utilities;
+using Core.ValueObject.Restaurant;
 using Core.ValueObject.Schedule;
 
 namespace Core.Model.ScheduleModel;
@@ -8,6 +9,7 @@ namespace Core.Model.ScheduleModel;
 /// </summary>
 public class DailyEmployeeSchedule
 {
+    public RestaurantId RestaurantId { get; private set; }  
     public DailyEmployeeScheduleId DailyEmployeeScheduleId { get; private set; }
     public DailyScheduleDate DailyScheduleDate { get; private set; }
     public IReadOnlyList<EmployeeSchedule> EmployeeSchedules { get; private set; } = new List<EmployeeSchedule>();

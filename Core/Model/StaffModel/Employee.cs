@@ -1,5 +1,6 @@
 using System.Security.AccessControl;
 using Core.ValueObject.Common;
+using Core.ValueObject.Restaurant;
 using Core.ValueObject.Staff.Employee;
 using Core.ValueObject.Staff.User;
 
@@ -10,6 +11,7 @@ namespace Core.Model.StaffModel;
 /// </summary>
 public class Employee : User, ISoftDelete
 {
+    public RestaurantId RestaurantId { get; init; }
     public EmployeeLogin EmployeeLogin { get; private set; }
     public EmployeePosition EmployeePosition { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; } //todo

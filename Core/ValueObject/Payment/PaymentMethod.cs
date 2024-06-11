@@ -11,7 +11,7 @@ public sealed record PaymentMethod
     
     public PaymentMethod(string paymentMethod)
     {
-        if (paymentMethod != Cash || paymentMethod != Card)
+        if (paymentMethod != Cash && paymentMethod != Card)
         {
             throw new InvalidPaymentMethodException();
         }

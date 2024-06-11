@@ -1,32 +1,29 @@
 @signInUrl = http://localhost:5180/sign-in
-@ownerUrl = http://localhost:5180/owner
 
-###
-# @name sign_in
+### sign in as owner of restaurant to manage orders.
+# @name signIn
 POST {{signInUrl}}/owner
 Content-Type: application/json
 
 {
-    "Email" : "john.doe@email.com",
-    "Password" : "johndoe12345"
+  "Email": "john.doe@email.com",
+  "Password": "johndoe12345"
 }
+> {% client.global.set("accessToken", response.body.accessToken) %}
 
 ###
+@restaurantId = 00000000-0000-0000-0000-000000000001
+@tableId = 00000000-0000-0000-0000-000000000001
+@menuItemId = 00000000-0000-0000-0000-000000000001
+@serviceId = 00000000-0000-0000-0000-000000000001
+@ordersUrl = http://localhost:5180/restaurant/{{restaurantId}}/orders
+###
+@restaurantUrl = http://localhost:5180/restaurant
+###
+
 GET {{ownerUrl}}
 Content-Type: application/json
 Authorization: Bearer {{accessToken}}
-
-
-###
-@accessToken = {{sign_in.response.body.accessToken}}
-
-###
-GET {{signInUrl}}
-Authorization: Bearer {{accessToken}}
-
-###
-@restaurantUrl = http://localhost:5180/restaurant
-@restaurantId = 00000000-0000-0000-0000-000000000001
 
 #GET RESTAURANT PROFILE
 ###
@@ -37,9 +34,7 @@ Content-Type: application/json
 ###
 GET {{restaurantUrl}}/{{restaurantId}}/menu
 Content-Type: application/json
-
 ###
-@menuItemId = 9a526765-a1c0-4ab6-81ff-76110a49cc51
 
 #GET RESTAURANT EMPLOYEES
 ###
@@ -52,23 +47,6 @@ Content-Type: application/json
 GET {{restaurantUrl}}/{{restaurantId}}/reservations
 Content-Type: application/json
 
-#GET RESTAURANT ORDERS
-###
-GET {{restaurantUrl}}/{{restaurantId}}/orders/restaurant
-Content-Type: application/json
-
-###
-#CREATE RESTAURANT ORDER
-###
-POST {{restaurantUrl}}/{{restaurantId}}/orders/restaurant
-Content-Type: application/json
-
-{
-  "tableId" : "{{tableId}}",
-  "menuItems" : ["8ff10627-5764-434a-95a7-13f5bec2c871"],
-  "services" : []
-}
-
 ###
 #GET RESTAURANT SCHEDULES
 ###
@@ -76,8 +54,6 @@ GET {{restaurantUrl}}/{{restaurantId}}/schedules
 Content-Type: application/json
 
 ###
-@tableId = 00000000-0000-0000-0000-000000000001
-
 #GET RESTAURANT TABLES
 ###
 GET {{restaurantUrl}}/{{restaurantId}}/tables

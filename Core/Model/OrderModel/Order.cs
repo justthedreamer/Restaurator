@@ -84,7 +84,6 @@ public abstract class Order : ISoftDelete
                 .ToList()
                 .AsReadOnly();
 
-
             // Set receipt
             Receipt = new Receipt(receiptId, receiptIssueDate, menuItems, services, paymentMethod);
         }

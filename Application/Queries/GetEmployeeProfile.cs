@@ -4,4 +4,8 @@ using Core.ValueObject.Staff.User;
 
 namespace Application.Queries;
 
-public sealed record GetEmployeeProfile(Guid EmployeeId) : IQuery<EmployeeDto>{}
+public sealed record GetEmployeeProfile : IQuery<EmployeeDto>
+{
+    public required Guid RestaurantId { get; init; }
+    public required Guid EmployeeId { get; init; }
+}

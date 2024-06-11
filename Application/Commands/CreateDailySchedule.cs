@@ -2,7 +2,7 @@ using Application.Commands.Abstraction;
 
 namespace Application.Commands;
 
-public record CreateDailySchedule : ICommand
+public sealed record CreateDailySchedule : ICommand
 {
     public Guid ScheduleId { get; init; }
     public Guid RestaurantId { get; init; }

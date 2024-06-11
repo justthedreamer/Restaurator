@@ -11,4 +11,6 @@ public class ReceiptDto
     public required IEnumerable<ServiceReceiptRowDto> Services { get; init; }
     public required string PaymentMethod { get; init; }
     public required string PaymentState { get; init; }
+    public required decimal DefaultPrice { get; set; }
+    public required decimal FinalPrice { get; set; }
 }

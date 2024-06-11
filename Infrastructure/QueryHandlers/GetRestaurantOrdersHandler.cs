@@ -2,7 +2,6 @@ using Application.DTO;
 using Application.Queries;
 using Application.Queries.Abstraction;
 using AutoMapper;
-using Core.Services.Abstraction;
 using Core.ValueObject.Restaurant;
 using Infrastructure.DAL;
 using Microsoft.EntityFrameworkCore;
@@ -12,33 +11,45 @@ namespace Infrastructure.QueryHandlers;
 
 internal sealed class GetRestaurantOrdersHandler(
     RestauratorDbContext dbContext,
-    IMapper mapper,
-    IOrderService orderService)
-    : IQueryHandler<GetRestaurantOrders, IEnumerable<OrderDto>>
+    IMapper mapper)
+    : IQueryHandler<GetRestaurantOrders, IEnumerable<RestaurantOrderDto>>
 {
-    public async Task<IEnumerable<OrderDto>> HandleAsync(GetRestaurantOrders query)
+    public async Task<IEnumerable<RestaurantOrderDto>> HandleAsync(GetRestaurantOrders query)
     {
         var restaurantId = new RestaurantId(query.RestaurantId);
-        var orders = await dbContext.Orders
+        var ordersQuery = dbContext.Orders
             .OfType<RestaurantOrder>()
             .Include(o => o.Services)
             .Include(o => o.MenuItems)
             .Include(o => o.Table)
-            .Include(o => o.Receipt).ThenInclude(r => r.ServiceReceiptRows)
-            .Include(o => o.Receipt).ThenInclude(r => r.MenuItemReceiptRows)
+            .Include(o => o.Receipt)
             .Include(o => o.PromoCode)
-            .Where(o => o.RestaurantId == restaurantId)
-            .ToListAsync();
+            .Where(o => o.RestaurantId == restaurantId);
 
-        
+
         if (query.From is not null)
         {
-            orders = orders.Where(o => o.CreatedAt.Value >= query.From).ToList();
+            ordersQuery = ordersQuery.Where(o => o.CreatedAt.Value >= query.From);
         }
 
         if (query.To is not null)
         {
-            orders = orders.Where(o => o.CreatedAt.Value <= query.To).ToList();
+            ordersQuery = ordersQuery.Where(o => o.CreatedAt.Value <= query.To);
+        }
+
+        var orders = await ordersQuery.ToListAsync();
+
+        var receipts = orders.Select(o => o.Receipt).Where(r => r is not null);
+
+        foreach (var receipt in receipts)
+        {
+            await dbContext.Entry(receipt!)
+                .Collection(r => r.ServiceReceiptRows)
+                .LoadAsync();
+
+            await dbContext.Entry(receipt!)
+                .Collection(r => r.MenuItemReceiptRows)
+                .LoadAsync();
         }
 
         return orders.Select(mapper.Map<RestaurantOrder, RestaurantOrderDto>);

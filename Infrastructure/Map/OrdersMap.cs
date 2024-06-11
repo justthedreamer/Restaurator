@@ -39,9 +39,11 @@ internal partial class MainMapProfile
                         MenuItemName = row.MenuItem.MenuItemName.Value,
                         DefaultPrice = row.DefaultPrice.Value,
                         FinalPrice = row.FinalPrice.Value
-                    })
+                    }),
+                    DefaultPrice = o.Receipt.DefaultPrice.Value,
+                    FinalPrice = o.Receipt.FinalPrice.Value,
                 }))
-            .ForMember(dto => dto.MenuItems,ex => ex.MapFrom(o => o.MenuItems.Select(mi => new MenuItemDto()
+            .ForMember(dto => dto.MenuItems, ex => ex.MapFrom(o => o.MenuItems.Select(mi => new MenuItemDto()
             {
                 Id = mi.MenuItemId.Value,
                 Category = mi.Category.Value,
@@ -51,14 +53,34 @@ internal partial class MainMapProfile
                 Description = mi.Description == null ? null : mi.Description.Value,
                 PrepareTime = mi.PrepareTime == null ? null : mi.PrepareTime.Value
             })))
-            .ForMember(dto => dto.Services,ex => ex.MapFrom(o => o.Services.Select(s => new ServiceDto
+            .ForMember(dto => dto.Services, ex => ex.MapFrom(o => o.Services.Select(s => new ServiceDto
             {
+                Id = s.ServiceId.Value,
                 Name = s.ServiceName.Value,
                 Price = s.ServicePrice.Value
             })));
 
         CreateMap<RestaurantOrder, RestaurantOrderDto>()
             .IncludeBase<Order, OrderDto>()
-            .ForMember(dto => dto.TableSign, ex => ex.MapFrom(ro => ro.Table.TableSign));
+            .ForMember(dto => dto.TableSign, ex => ex.MapFrom(ro => ro.Table.TableSign.Value));
+
+        CreateMap<TakeAwayOrder, TakeAwayOrderDto>()
+            .IncludeBase<Order, OrderDto>()
+            .ForMember(dto => dto.CustomerFirstName, ex => ex.MapFrom(o => o.CustomerFirstName.Value))
+            .ForMember(dto => dto.CustomerLastName, ex => ex.MapFrom(o => o.CustomerLastName.Value));
+
+        CreateMap<DeliveryOrder, DeliveryOrderDto>()
+            .IncludeBase<Order, OrderDto>()
+            .ForMember(dto => dto.CustomerFirstName, ex => ex.MapFrom(o => o.CustomerFirstName.Value))
+            .ForMember(dto => dto.CustomerLastName, ex => ex.MapFrom(o => o.CustomerLastName.Value))
+            .ForMember(dto => dto.CustomerPhoneNumber, ex => ex.MapFrom(o => o.CustomerPhoneNumber.Value))
+            .ForMember(dto => dto.CustomerAddress, ex => ex.MapFrom(o => new AddressDto
+            {
+                City = o.CustomerAddress.City.Value,
+                Street = o.CustomerAddress.Street.Value,
+                HouseNumber = o.CustomerAddress.HouseNumber.Value,
+            }))
+            .ForMember(dto => dto.CourierPhoneNumber,
+                ex => ex.MapFrom(o => o.Courier == null ? null : o.Courier.PhoneNumber.Value));
     }
 }
